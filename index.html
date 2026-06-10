@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarmichaelWorks — Welding & Hauling | Cincinnati, OH</title>
+    <meta name="description" content="Certified welding, junk removal, scrap pickup & hauling in Cincinnati, OH. MIG shop welding, on-site stick welding, cleanouts, dump runs. Call Carmichael Property & Projects LLC.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:     #0d0d0d;
+            --bg2:    #141414;
+            --card:   #1a1a1a;
+            --border: #272727;
+            --text:   #e8e8e8;
+            --muted:  #7a7a7a;
+            --steel:  #94a3b8;
+            --accent: #f97316;
+            --accent-d: #e06510;
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; }
+        h1,h2,h3 { font-family:'Bebas Neue',sans-serif; letter-spacing:.05em; line-height:1.05; }
+
+        /* ── NAV ── */
+        nav {
+            position:fixed; top:0; left:0; right:0; z-index:200;
+            background:rgba(13,13,13,.96); backdrop-filter:blur(12px);
+            border-bottom:1px solid var(--border);
+            height:62px; padding:0 2rem;
+            display:flex; align-items:center; justify-content:space-between;
+        }
+        .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:.1em; color:var(--text); text-decoration:none; }
+        .nav-logo span { color:var(--accent); }
+        .nav-links { display:flex; gap:2rem; list-style:none; }
+        .nav-links a { color:var(--muted); text-decoration:none; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:color .2s; }
+        .nav-links a:hover { color:var(--accent); }
+        .nav-cta { background:var(--accent) !important; color:#000 !important; padding:.45rem 1.1rem !important; border-radius:4px; }
+        .nav-cta:hover { background:var(--accent-d) !important; }
+        .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:.4rem; }
+        .hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; transition:all .3s; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height:100vh; display:flex; align-items:center;
+            padding:7rem 2rem 5rem; position:relative; overflow:hidden;
+        }
+        .hero-bg {
+            position:absolute; inset:0;
+            background:
+                radial-gradient(ellipse at 15% 55%, rgba(249,115,22,.07) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 15%, rgba(249,115,22,.04) 0%, transparent 50%),
+                #0d0d0d;
+        }
+        .hero-grid {
+            position:absolute; inset:0;
+            background-image:
+                linear-gradient(rgba(249,115,22,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249,115,22,.025) 1px, transparent 1px);
+            background-size:56px 56px;
+        }
+        .hero-content { position:relative; max-width:920px; margin:0 auto; width:100%; }
+        .pill {
+            display:inline-flex; align-items:center; gap:.5rem;
+            background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25);
+            color:var(--accent); font-size:.7rem; font-weight:700;
+            letter-spacing:.15em; text-transform:uppercase;
+            padding:.35rem 1rem; border-radius:100px; margin-bottom:1.75rem;
+        }
+        .hero h1 { font-size:clamp(3.2rem,9vw,7.5rem); margin-bottom:1.5rem; }
+        .hero h1 em { color:var(--accent); font-style:normal; }
+        .hero-sub { font-size:1.05rem; color:var(--steel); max-width:500px; margin-bottom:2.5rem; font-weight:300; }
+        .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+        .btn-primary {
+            background:var(--accent); color:#000; text-decoration:none;
+            padding:.85rem 2rem; border-radius:5px; font-weight:700; font-size:.85rem;
+            letter-spacing:.07em; text-transform:uppercase; border:none; cursor:pointer;
+            display:inline-flex; align-items:center; gap:.5rem;
+            transition:background .2s, transform .15s;
+        }
+        .btn-primary:hover { background:var(--accent-d); transform:translateY(-1px); }
+        .btn-ghost {
+            border:1px solid var(--border); color:var(--text); text-decoration:none;
+            padding:.85rem 2rem; border-radius:5px; font-weight:500; font-size:.85rem;
+            letter-spacing:.07em; text-transform:uppercase; transition:border-color .2s, color .2s;
+        }
+        .btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+        .hero-stats { display:flex; gap:3rem; flex-wrap:wrap; margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--border); }
+        .stat-val { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--accent); letter-spacing:.05em; line-height:1; }
+        .stat-lbl { font-size:.7rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-top:.2rem; }
+
+        /* ── LAYOUT ── */
+        section { padding:6rem 2rem; }
+        .wrap { max-width:1100px; margin:0 auto; }
+        .sec-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem; }
+        .sec-title { font-size:clamp(2.2rem,5.5vw,4rem); margin-bottom:.75rem; }
+        .sec-sub { color:var(--muted); font-size:.95rem; max-width:520px; margin-bottom:3rem; }
+
+        /* ── SERVICES ── */
+        #services { background:var(--bg2); }
+        .svc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.25rem; }
+        .svc-card {
+            background:var(--card); border:1px solid var(--border); border-radius:10px;
+            padding:1.75rem; position:relative; overflow:hidden;
+            transition:border-color .25s, transform .2s;
+        }
+        .svc-card:hover { border-color:var(--accent); transform:translateY(-3px); }
+        .svc-card::after {
+            content:''; position:absolute; top:0; left:0; right:0; height:3px;
+            background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s;
+        }
+        .svc-card:hover::after { transform:scaleX(1); }
+        .svc-icon { font-size:2.25rem; margin-bottom:.9rem; }
+        .svc-title { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.05em; margin-bottom:.4rem; }
+        .svc-desc { color:var(--muted); font-size:.875rem; line-height:1.75; }
+        .svc-tag { display:inline-block; background:rgba(249,115,22,.1); color:var(--accent); font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .6rem; border-radius:3px; margin-top:1rem; }
+
+        /* ── QUIZ ── */
+        #quiz { background:var(--bg); }
+        .quiz-wrap { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:2.75rem; max-width:740px; margin:2.5rem auto 0; }
+        .quiz-bar { display:flex; gap:5px; margin-bottom:2.5rem; }
+        .quiz-dot { height:4px; flex:1; border-radius:2px; background:var(--border); transition:background .3s; }
+        .quiz-dot.on { background:var(--accent); }
+        .quiz-dot.done { background:rgba(249,115,22,.35); }
+        .quiz-step { display:none; }
+        .quiz-step.active { display:block; }
+        .quiz-q { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; letter-spacing:.04em; margin-bottom:.35rem; }
+        .quiz-hint { color:var(--muted); font-size:.825rem; margin-bottom:1.75rem; }
+        .quiz-opts { display:flex; flex-direction:column; gap:.65rem; }
+        .qopt {
+            display:flex; align-items:flex-start; gap:.9rem;
+            padding:.9rem 1.1rem; background:var(--bg2);
+            border:1px solid var(--border); border-radius:8px;
+            cursor:pointer; text-align:left; width:100%;
+            transition:border-color .2s, background .2s;
+        }
+        .qopt:hover { border-color:var(--accent); background:rgba(249,115,22,.04); }
+        .qopt.sel { border-color:var(--accent); background:rgba(249,115,22,.09); }
+        .qopt-icon { font-size:1.4rem; flex-shrink:0; margin-top:.05rem; }
+        .qopt strong { display:block; font-size:.9rem; font-weight:600; margin-bottom:.15rem; }
+        .qopt small { color:var(--muted); font-size:.775rem; }
+        .quiz-nav { display:flex; justify-content:space-between; align-items:center; margin-top:1.75rem; }
+        .btn-back { background:none; border:none; color:var(--muted); font-size:.825rem; cursor:pointer; padding:.4rem; transition:color .2s; }
+        .btn-back:hover { color:var(--text); }
+        .btn-next { background:var(--accent); color:#000; border:none; padding:.7rem 1.75rem; border-radius:5px; font-weight:700; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
+        .btn-next:hover { background:var(--accent-d); }
+        .btn-next:disabled { opacity:.35; cursor:not-allowed; }
+        .result-badge { display:inline-block; background:rgba(249,115,22,.12); border:1px solid rgba(249,115,22,.35); color:var(--accent); font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:.35rem 1rem; border-radius:100px; margin-bottom:1.25rem; }
+        .result-title { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; letter-spacing:.05em; margin-bottom:.65rem; }
+        .result-desc { color:var(--muted); font-size:.9rem; max-width:480px; margin:0 auto 1.5rem; }
+
+        /* ── FORMS ── */
+        .form { display:flex; flex-direction:column; gap:.85rem; }
+        .frow { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+        .fg { display:flex; flex-direction:column; gap:.35rem; }
+        .fg label { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+        .fg input, .fg select, .fg textarea {
+            background:var(--bg); border:1px solid var(--border); border-radius:5px;
+            color:var(--text); padding:.7rem .9rem; font-family:'Inter',sans-serif; font-size:.875rem;
+            outline:none; transition:border-color .2s;
+        }
+        .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--accent); }
+        .fg select option { background:var(--bg2); }
+        .fg textarea { resize:vertical; min-height:90px; }
+
+        /* ── PROCESS ── */
+        #process { background:var(--bg2); }
+        .proc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; margin-top:3rem; }
+        .proc-step { padding:2rem 1.5rem; text-align:center; }
+        .proc-num { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:rgba(249,115,22,.12); line-height:1; margin-bottom:.35rem; }
+        .proc-title { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.05em; margin-bottom:.4rem; }
+        .proc-desc { color:var(--muted); font-size:.85rem; line-height:1.75; }
+
+        /* ── ABOUT ── */
+        #about { background:var(--bg); }
+        .about-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:4rem; align-items:center; }
+        .about-vis {
+            border-radius:12px; background:var(--card); border:1px solid var(--border);
+            height:360px; display:flex; align-items:center; justify-content:center; text-align:center;
+        }
+        .about-vis-icon { font-size:4.5rem; margin-bottom:.75rem; }
+        .about-vis p { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:.12em; color:var(--muted); }
+        .about-text h2 { margin-bottom:.9rem; }
+        .about-text p { color:var(--muted); font-size:.9rem; line-height:1.85; margin-bottom:.9rem; }
+        .about-text strong { color:var(--text); }
+        .badges { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.25rem; }
+        .badge { display:flex; align-items:center; gap:.4rem; background:var(--card); border:1px solid var(--border); border-radius:5px; padding:.45rem .85rem; font-size:.75rem; font-weight:600; }
+
+        /* ── CONTACT ── */
+        #contact { background:var(--bg2); }
+        .contact-grid { display:grid; grid-template-columns:1fr 1.55fr; gap:4rem; margin-top:3rem; align-items:start; }
+        .cinfo { display:flex; flex-direction:column; gap:1.5rem; }
+        .citem { display:flex; align-items:flex-start; gap:.9rem; }
+        .citem-icon { width:42px; height:42px; background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.18); border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; }
+        .citem-lbl { font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+        .citem-val { font-size:.95rem; font-weight:600; }
+        .citem-val a { color:var(--text); text-decoration:none; transition:color .2s; }
+        .citem-val a:hover { color:var(--accent); }
+        .cform-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2.25rem; }
+        .cform-title { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; letter-spacing:.05em; margin-bottom:.25rem; }
+        .cform-sub { color:var(--muted); font-size:.825rem; margin-bottom:1.5rem; }
+
+        /* ── FOOTER ── */
+        footer { background:#080808; border-top:1px solid var(--border); padding:2.5rem 2rem; }
+        .foot-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.25rem; }
+        .foot-logo { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.1em; }
+        .foot-logo span { color:var(--accent); }
+        .foot-copy { color:var(--muted); font-size:.75rem; margin-top:.25rem; }
+        .foot-links { display:flex; gap:1.5rem; list-style:none; }
+        .foot-links a { color:var(--muted); text-decoration:none; font-size:.775rem; transition:color .2s; }
+        .foot-links a:hover { color:var(--accent); }
+
+        /* ── TOAST ── */
+        .toast { position:fixed; bottom:1.75rem; right:1.75rem; background:var(--accent); color:#000; font-weight:700; font-size:.875rem; padding:.9rem 1.4rem; border-radius:7px; z-index:999; opacity:0; transform:translateY(16px); transition:all .3s; pointer-events:none; }
+        .toast.show { opacity:1; transform:translateY(0); }
+
+        /* ── FADE ANIMATION ── */
+        .fi { opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+        .fi.vis { opacity:1; transform:translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:768px) {
+            .nav-links { display:none; }
+            .hamburger { display:flex; }
+            .nav-links.open {
+                display:flex; flex-direction:column;
+                position:fixed; top:62px; left:0; right:0;
+                background:var(--bg); border-bottom:1px solid var(--border);
+                padding:2rem; gap:1.5rem;
+            }
+            .about-grid, .contact-grid { grid-template-columns:1fr; }
+            .about-vis { height:180px; }
+            .frow { grid-template-columns:1fr; }
+            .quiz-wrap { padding:1.5rem; }
+            .hero-stats { gap:2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="#home" class="nav-logo">CARMICHAEL<span>WORKS</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#quiz">Get a Quote</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+        <div class="pill">📍 Serving Cincinnati, OH &amp; Surrounding Areas</div>
+        <h1>
+            WE WELD IT.<br>
+            <em>WE HAUL IT.</em><br>
+            WE HANDLE IT.
+        </h1>
+        <p class="hero-sub">Certified welding, junk removal, scrap metal pickup, and hauling services. One call — shop or on-site, big loads or small.</p>
+        <div class="hero-btns">
+            <a href="#quiz" class="btn-primary">▶ Find Your Service</a>
+            <a href="#services" class="btn-ghost">See What We Do</a>
+        </div>
+        <div class="hero-stats">
+            <div>
+                <div class="stat-val">CERTIFIED</div>
+                <div class="stat-lbl">Welder On Every Job</div>
+            </div>
+            <div>
+                <div class="stat-val">SAME-DAY</div>
+                <div class="stat-lbl">Hauling Available</div>
+            </div>
+            <div>
+                <div class="stat-val">LOCAL</div>
+                <div class="stat-lbl">Owner-Operated</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="wrap">
+        <div class="sec-label">What We Do</div>
+        <h2 class="sec-title">OUR SERVICES</h2>
+        <p class="sec-sub">From certified metal repair to full property cleanouts — we do the dirty work so you don't have to.</p>
+        <div class="svc-grid">
+            <div class="svc-card fi">
+                <div class="svc-icon">🔥</div>
+                <div class="svc-title">MIG Shop Welding</div>
+                <p class="svc-desc">Bring your metal project to our shop for precision MIG welding. Frames, gates, equipment repairs, custom fabrication — done right the first time.</p>
+                <span class="svc-tag">Shop Work</span>
+            </div>
+            <div class="svc-card fi">
+                <div class="svc-icon">⚡</div>
+                <div class="svc-title">On-Site Stick Welding</div>
+                <p class="svc-desc">We come to you. Stick welding repairs right at your property, job site, or farm. No trailer needed — we bring the gear to the job.</p>
+                <span class="svc-tag">On-Site</span>
+            </div>
+            <div class="svc-card fi">
+                <div class="svc-icon">🏅</div>
+                <div class="svc-title">Certified Welder</div>
+                <p class="svc-desc">Every job is backed by a certified welder. Quality you can count on for structural work, equipment repair, trailer hitches, gates, and more.</p>
+                <span class="svc-tag">Certified</span>
+            </div>
+            <div class="svc-card fi">
+                <div class="svc-icon">🚛</div>
+                <div class="svc-title">Junk Removal &amp; Cleanouts</div>
+                <p class="svc-desc">Full property cleanouts, basement clears, garage hauls. We load it, haul it, and dump it. You don't lift a finger.</p>
+                <span class="svc-tag">Hauling</span>
+            </div>
+            <div class="svc-card fi">
+                <div class="svc-icon">📦</div>
+                <div class="svc-title">Moving &amp; Hauling Help</div>
+                <p class="svc-desc">Need furniture, appliances, or equipment moved across town or off your property? We've got a truck and the muscle to get it done.</p>
+                <span class="svc-tag">Moving</span>
+            </div>
+            <div class="svc-card fi">
+                <div class="svc-icon">♻️</div>
+                <div class="svc-title">Scrap Metal Pickup</div>
+                <p class="svc-desc">Old appliances, scrap metal, car parts, construction debris — we'll haul it and scrap it. Fast, fair, and hassle-free.</p>
+                <span class="svc-tag">Scrap</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUESTIONNAIRE / QUIZ -->
+<section id="quiz">
+    <div class="wrap">
+        <div class="sec-label">Not Sure What You Need?</div>
+        <h2 class="sec-title">FIND YOUR SERVICE</h2>
+        <p class="sec-sub">Answer a few quick questions and we'll match you to the right service and get you a fast quote.</p>
+
+        <div class="quiz-wrap">
+            <div class="quiz-bar" id="qBar">
+                <div class="quiz-dot on"></div>
+                <div class="quiz-dot"></div>
+                <div class="quiz-dot"></div>
+                <div class="quiz-dot"></div>
+            </div>
+
+            <!-- STEP 0 -->
+            <div class="quiz-step active" id="qs0">
+                <div class="quiz-q">What brings you here today?</div>
+                <p class="quiz-hint">Pick the one that best fits your situation.</p>
+                <div class="quiz-opts" id="qopts0">
+                    <button class="qopt" data-val="junk">
+                        <span class="qopt-icon">🗑️</span>
+                        <span><strong>I've got junk, clutter, or old stuff to clear out</strong><small>Cleanouts, dump runs, trash removal</small></span>
+                    </button>
+                    <button class="qopt" data-val="weld">
+                        <span class="qopt-icon">🔧</span>
+                        <span><strong>I need something welded or repaired</strong><small>Metal repair, fabrication, structural work</small></span>
+                    </button>
+                    <button class="qopt" data-val="move">
+                        <span class="qopt-icon">📦</span>
+                        <span><strong>I need help moving furniture or equipment</strong><small>Hauling, lifting, furniture removal</small></span>
+                    </button>
+                    <button class="qopt" data-val="scrap">
+                        <span class="qopt-icon">♻️</span>
+                        <span><strong>I've got scrap metal to get rid of</strong><small>Appliances, old metal, equipment</small></span>
+                    </button>
+                    <button class="qopt" data-val="unsure">
+                        <span class="qopt-icon">🤔</span>
+                        <span><strong>I'm not exactly sure — help me figure it out</strong><small>I'll describe it and you tell me what fits</small></span>
+                    </button>
+                </div>
+                <div class="quiz-nav">
+                    <span></span>
+                    <button class="btn-next" id="qnext0" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- STEP 1 (built by JS) -->
+            <div class="quiz-step" id="qs1"></div>
+
+            <!-- STEP 2 (built by JS) -->
+            <div class="quiz-step" id="qs2"></div>
+
+            <!-- STEP 3: RESULT + MINI FORM -->
+            <div class="quiz-step" id="qs3"></div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+    <div class="wrap">
+        <div class="sec-label">Simple Process</div>
+        <h2 class="sec-title">HOW IT WORKS</h2>
+        <p class="sec-sub">No runaround, no wasted time. Three steps from question to done.</p>
+        <div class="proc-grid">
+            <div class="proc-step fi">
+                <div class="proc-num">01</div>
+                <div class="proc-title">Tell Us What You've Got</div>
+                <p class="proc-desc">Use the questionnaire above or call/text directly. Describe the job — hauled, welded, moved, or scrapped.</p>
+            </div>
+            <div class="proc-step fi">
+                <div class="proc-num">02</div>
+                <div class="proc-title">We'll Give You a Quote</div>
+                <p class="proc-desc">Fast, honest pricing. We'll get back to you quickly — sometimes same day — with a clear number and zero hidden fees.</p>
+            </div>
+            <div class="proc-step fi">
+                <div class="proc-num">03</div>
+                <div class="proc-title">We Show Up &amp; Handle It</div>
+                <p class="proc-desc">We come out, do the work right, and leave the place clean. You don't lift a finger unless you want to.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="wrap">
+        <div class="about-grid">
+            <div class="about-vis fi">
+                <div>
+                    <div class="about-vis-icon">⚙️</div>
+                    <p>BUILT TO WORK</p>
+                </div>
+            </div>
+            <div class="about-text fi">
+                <div class="sec-label">About Us</div>
+                <h2 class="sec-title">CARMICHAEL PROPERTY &amp; PROJECTS LLC</h2>
+                <p>We're a <strong>Cincinnati-based, owner-operated business</strong> that handles the hard stuff — the hauls nobody wants to make, the repairs that need to be done right, the cleanouts that have been put off too long.</p>
+                <p>Whether you need a <strong>certified welder</strong> at your shop or someone to drag decades of junk out of your basement, we show up, we work hard, and we get it done.</p>
+                <p>No subcontractors. No surprises. Just <strong>straight-up, dependable work</strong> across lower Cincinnati and surrounding areas.</p>
+                <div class="badges">
+                    <div class="badge">🏅 Certified Welder</div>
+                    <div class="badge">📍 Cincinnati, OH</div>
+                    <div class="badge">🔥 MIG &amp; Stick</div>
+                    <div class="badge">🚛 Hauling &amp; Dump Runs</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="wrap">
+        <div class="sec-label">Let's Talk</div>
+        <h2 class="sec-title">GET IN TOUCH</h2>
+        <p class="sec-sub">Ready for a quote? Have a question? Reach out — we respond fast.</p>
+        <div class="contact-grid">
+            <div class="cinfo">
+                <div class="citem">
+                    <div class="citem-icon">📞</div>
+                    <div>
+                        <div class="citem-lbl">Call or Text</div>
+                        <div class="citem-val"><a href="tel:+15555555555">(555) 555-5555</a></div>
+                    </div>
+                </div>
+                <div class="citem">
+                    <div class="citem-icon">✉️</div>
+                    <div>
+                        <div class="citem-lbl">Email</div>
+                        <div class="citem-val"><a href="mailto:info@carmichaelworks.com">info@carmichaelworks.com</a></div>
+                    </div>
+                </div>
+                <div class="citem">
+                    <div class="citem-icon">📍</div>
+                    <div>
+                        <div class="citem-lbl">Service Area</div>
+                        <div class="citem-val">Cincinnati, OH &amp; Surrounding Areas</div>
+                    </div>
+                </div>
+                <div class="citem">
+                    <div class="citem-icon">🕐</div>
+                    <div>
+                        <div class="citem-lbl">Hours</div>
+                        <div class="citem-val">Mon–Sat: 7am–7pm<br><small style="color:var(--muted);font-weight:400">Emergency calls welcome</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cform-card">
+                <div class="cform-title">REQUEST A FREE QUOTE</div>
+                <p class="cform-sub">Fill out the form and we'll get back to you within a few hours.</p>
+                <form class="form" id="cForm">
+                    <div class="frow">
+                        <div class="fg"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
+                        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(513) 555-0000" required></div>
+                    </div>
+                    <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com"></div>
+                    <div class="fg">
+                        <label>Service Needed *</label>
+                        <select required>
+                            <option value="" disabled selected>Select a service…</option>
+                            <option>MIG Shop Welding</option>
+                            <option>On-Site Stick Welding</option>
+                            <option>Junk Removal / Property Cleanout</option>
+                            <option>Moving &amp; Hauling Help</option>
+                            <option>Scrap Metal Pickup</option>
+                            <option>Dump Run</option>
+                            <option>Not Sure — Need Help Deciding</option>
+                        </select>
+                    </div>
+                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" placeholder="e.g. Anderson Township, OH" required></div>
+                    <div class="fg"><label>Describe the Job</label><textarea placeholder="Tell us what you've got — size, location, type of material, whatever details you have. More info = better quote."></textarea></div>
+                    <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send My Request ▶</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div>
+            <div class="foot-logo">CARMICHAEL<span>WORKS</span></div>
+            <div class="foot-copy">© 2025 Carmichael Property &amp; Projects LLC. All rights reserved.</div>
+        </div>
+        <ul class="foot-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#quiz">Get a Quote</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<div class="toast" id="toast">✓ Message sent! We'll be in touch soon.</div>
+
+<script>
+// ── MOBILE MENU ──
+document.getElementById('hbg').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// ── QUIZ DATA ──
+const PATHS = {
+    junk: {
+        q1: {
+            q: 'How much stuff needs to go?',
+            hint: 'Give us a rough sense of the volume so we can quote accurately.',
+            opts: [
+                { icon:'📦', val:'small',  l:'Small load — a few items or bags',         s:'Fits in a truck bed or less' },
+                { icon:'🛋️', val:'medium', l:'Medium load — a room\'s worth',             s:'Furniture, boxes, appliances' },
+                { icon:'🏚️', val:'large',  l:'Large load — whole property cleanout',      s:'Multiple rooms, garage, basement, yard' },
+            ]
+        },
+        q2: {
+            q: 'Where is the junk located?',
+            hint: 'This helps us plan crew size and access.',
+            opts: [
+                { icon:'🏠', val:'inside',     l:'Inside the home',                          s:'Basement, attic, bedrooms, kitchen' },
+                { icon:'🌳', val:'outside',    l:'Outside — yard, garage, or shed',          s:'Outdoor debris, old equipment, scrap' },
+                { icon:'🏢', val:'commercial', l:'Commercial property or job site',          s:'Business, rental, or work site' },
+                { icon:'🔀', val:'mixed',      l:'Mixed — inside and outside',               s:'Multiple areas to clear' },
+            ]
+        },
+        result: { badge:'Hauling Service', title:'JUNK REMOVAL & DUMP RUN', desc:"We'll come out, load everything up, and haul it to the dump. No stress, no mess left behind." }
+    },
+    weld: {
+        q1: {
+            q: 'Where does the welding need to happen?',
+            hint: 'We can come to you, or you can bring your project to our shop.',
+            opts: [
+                { icon:'🏭', val:'shop',   l:'At the shop — I\'ll bring it in',      s:'Best for precise MIG work on portable pieces' },
+                { icon:'📍', val:'onsite', l:'On-site — come to my location',         s:'Stick welding repairs at your property or job site' },
+                { icon:'❓', val:'unsure', l:'Not sure yet',                           s:"We'll figure out the best option together" },
+            ]
+        },
+        q2: {
+            q: 'What type of metalwork is it?',
+            hint: 'Helps us bring the right equipment.',
+            opts: [
+                { icon:'🔩', val:'structural', l:'Structural or heavy equipment repair',  s:'Frames, beams, farm equipment, machinery' },
+                { icon:'🚗', val:'automotive', l:'Trailer, vehicle, or hitch',            s:'Trailer repair, hitches, automotive metal' },
+                { icon:'🚪', val:'fab',        l:'Fabrication or custom work',            s:'Gates, railings, brackets, custom builds' },
+                { icon:'❓', val:'unsure',     l:"Not sure — I'll describe it",           s:"Tell us what's broken or what you need" },
+            ]
+        },
+        result: { badge:'Welding Service', title:'WELDING & METAL REPAIR', desc:'Our certified welder will assess the job and get it done right — MIG in the shop or stick on-site at your location.' }
+    },
+    move: {
+        q1: {
+            q: 'What needs to be moved?',
+            hint: 'This helps us bring the right truck and crew.',
+            opts: [
+                { icon:'🛋️', val:'furniture',  l:'Household furniture &amp; appliances', s:'Couches, beds, fridges, washers/dryers' },
+                { icon:'⚙️', val:'equipment',  l:'Heavy equipment or machinery',          s:'Industrial items, large tools, shop equipment' },
+                { icon:'📦', val:'misc',        l:'Miscellaneous / mixed load',            s:'Variety of items, boxes, and stuff' },
+            ]
+        },
+        q2: {
+            q: 'How far does it need to go?',
+            hint: 'We serve the greater Cincinnati area.',
+            opts: [
+                { icon:'📍', val:'local',       l:'Same neighborhood or nearby',           s:'Within a few miles' },
+                { icon:'🗺️', val:'regional',    l:'Across town or same county',            s:'Greater Cincinnati area' },
+                { icon:'🔄', val:'off',         l:'Just off the property / to the curb',   s:'Moving it out, not transporting far' },
+            ]
+        },
+        result: { badge:'Moving Service', title:'MOVING & HAULING HELP', desc:"We'll bring the truck, load it up, and get your stuff where it needs to go. Heavy items, furniture, equipment — we handle it." }
+    },
+    scrap: {
+        q1: {
+            q: 'What kind of scrap do you have?',
+            hint: 'Different materials need different handling.',
+            opts: [
+                { icon:'🔧', val:'metal',        l:'Metal scraps &amp; parts',                  s:'Steel, aluminum, copper, iron pieces' },
+                { icon:'🧊', val:'appliances',   l:'Old appliances',                             s:'Fridges, washers, dryers, stoves, AC units' },
+                { icon:'🏗️', val:'construction', l:'Construction debris or demo material',       s:'Rebar, old pipe, sheet metal, roofing' },
+                { icon:'🔀', val:'mixed',        l:'Mixed — little of everything',              s:'Various scrap types to clear out' },
+            ]
+        },
+        q2: {
+            q: 'How much scrap is there?',
+            hint: 'Helps us plan how many trips we may need.',
+            opts: [
+                { icon:'📦', val:'small',  l:'A few pieces',          s:'One truck load or less' },
+                { icon:'🚛', val:'medium', l:'Full truck load',        s:'Good-sized pile or collection' },
+                { icon:'🏭', val:'large',  l:'Large accumulation',    s:'Multiple loads, years of buildup' },
+            ]
+        },
+        result: { badge:'Scrap Service', title:'SCRAP METAL PICKUP', desc:"We'll come load up your scrap and haul it away. Fast, easy, and one less thing on your property." }
+    },
+    unsure: {
+        q1: {
+            q: "Give us a rough idea of your situation.",
+            hint: "Pick what's closest — we'll sort out the details together.",
+            opts: [
+                { icon:'🗑️', val:'junk',  l:'Mostly stuff that needs to go away',    s:'Junk, clutter, old items to dispose of' },
+                { icon:'🔧', val:'weld',  l:'Something broken that needs fixing',     s:'Metal, equipment, structural repair' },
+                { icon:'📦', val:'move',  l:'Things that need to move somewhere',     s:'Furniture, equipment, items to relocate' },
+                { icon:'♻️', val:'scrap', l:'Metal or material to scrap out',         s:'Appliances, scrap metal, materials' },
+            ]
+        },
+        q2: null,
+        result: { badge:'Custom Service', title:"WE'LL FIGURE IT OUT", desc:"No worries — that's what the quote form is for. Tell us what you've got and we'll come up with the best plan." }
+    }
+};
+
+let qState = { path:'', s1:'', s2:'' };
+let qStep = 0;
+
+function qBuildStep(idx, data, isBack) {
+    const el = document.getElementById('qs' + idx);
+    el.innerHTML = `
+        <div class="quiz-q">${data.q}</div>
+        <p class="quiz-hint">${data.hint}</p>
+        <div class="quiz-opts">
+            ${data.opts.map(o => `
+                <button class="qopt" data-val="${o.val}">
+                    <span class="qopt-icon">${o.icon}</span>
+                    <span><strong>${o.l}</strong><small>${o.s}</small></span>
+                </button>
+            `).join('')}
+        </div>
+        <div class="quiz-nav">
+            <button class="btn-back" onclick="qBack()">← Back</button>
+            <button class="btn-next" id="qnext${idx}" disabled>Next →</button>
+        </div>
+    `;
+    el.querySelectorAll('.qopt').forEach(btn => {
+        btn.addEventListener('click', function() {
+            el.querySelectorAll('.qopt').forEach(b => b.classList.remove('sel'));
+            this.classList.add('sel');
+            document.getElementById('qnext' + idx).disabled = false;
+            if (idx === 1) qState.s1 = this.dataset.val;
+            if (idx === 2) qState.s2 = this.dataset.val;
+        });
+    });
+    document.getElementById('qnext' + idx).addEventListener('click', () => qNext(idx));
+}
+
+function qBuildResult() {
+    const path = (qState.s1 && qState.s1 in PATHS && qState.path === 'unsure') ? qState.s1 : qState.path;
+    const r = (PATHS[path] || PATHS.unsure).result;
+    const el = document.getElementById('qs3');
+    el.innerHTML = `
+        <div style="text-align:center">
+            <div class="result-badge">${r.badge}</div>
+            <div class="result-title">✓ ${r.title}</div>
+            <p class="result-desc">${r.desc}</p>
+            <p style="color:var(--muted);font-size:.825rem;margin-bottom:1.5rem">Fill out the quick form below and we'll send a fast, free quote.</p>
+        </div>
+        <form class="form" id="qForm">
+            <div class="frow">
+                <div class="fg"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
+                <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(513) 555-0000" required></div>
+            </div>
+            <div class="fg"><label>City / Neighborhood</label><input type="text" placeholder="e.g. Anderson Township, OH"></div>
+            <div class="fg"><label>Tell Us More (optional)</label><textarea placeholder="Any extra details — size, access, what you've got…"></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:.25rem">Get My Free Quote ▶</button>
+        </form>
+        <button class="btn-back" onclick="qRestart()" style="display:block;width:100%;text-align:center;margin-top:1.25rem">↺ Start Over</button>
+    `;
+    document.getElementById('qForm').addEventListener('submit', e => { e.preventDefault(); showToast(); e.target.reset(); });
+}
+
+function qShow(n) {
+    document.querySelectorAll('.quiz-step').forEach((el,i) => el.classList.toggle('active', i === n));
+    document.querySelectorAll('.quiz-dot').forEach((d,i) => {
+        d.classList.remove('on','done');
+        if (i === n) d.classList.add('on');
+        else if (i < n) d.classList.add('done');
+    });
+    qStep = n;
+}
+
+function qNext(from) {
+    if (from === 0) {
+        const pathData = PATHS[qState.path];
+        qBuildStep(1, pathData.q1);
+        qShow(1);
+    } else if (from === 1) {
+        const effectivePath = (qState.path === 'unsure' && qState.s1 in PATHS) ? qState.s1 : qState.path;
+        const q2 = PATHS[effectivePath]?.q2;
+        if (!q2) { qBuildResult(); qShow(3); }
+        else { qBuildStep(2, q2); qShow(2); }
+    } else if (from === 2) {
+        qBuildResult();
+        qShow(3);
+    }
+}
+
+function qBack() {
+    if (qStep > 0) qShow(qStep - 1);
+}
+
+function qRestart() {
+    qState = { path:'', s1:'', s2:'' };
+    document.querySelectorAll('#qs0 .qopt').forEach(b => b.classList.remove('sel'));
+    document.getElementById('qnext0').disabled = true;
+    qShow(0);
+}
+
+// Step 0 listeners
+document.querySelectorAll('#qs0 .qopt').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('#qs0 .qopt').forEach(b => b.classList.remove('sel'));
+        this.classList.add('sel');
+        qState.path = this.dataset.val;
+        document.getElementById('qnext0').disabled = false;
+    });
+});
+document.getElementById('qnext0').addEventListener('click', () => qNext(0));
+
+// ── CONTACT FORM ──
+document.getElementById('cForm').addEventListener('submit', e => { e.preventDefault(); showToast(); e.target.reset(); });
+
+// ── TOAST ──
+function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ── FADE IN ON SCROLL ──
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
