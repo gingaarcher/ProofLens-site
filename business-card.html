@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Junkerd Business Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#f0f0f0;
+    font-family:'Inter',sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px 20px;
+    gap:48px;
+  }
+
+  .section-label {
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#888;
+    margin-bottom:10px;
+    text-align:center;
+  }
+
+  .card-pair {
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .card-wrap {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+
+  .card-name-label {
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#999;
+  }
+
+  /* Standard business card: 3.5" x 2" — displayed at 3.5x scale */
+  .card {
+    width: 350px;
+    height: 200px;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,.18), 0 1px 4px rgba(0,0,0,.1);
+  }
+
+  /* ── FRONT ── */
+  .card-front {
+    background: #0f0f0f;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+  }
+
+  /* Orange border stripes */
+  .card-front::before,
+  .card-front::after {
+    content:'';
+    position:absolute;
+    left:0; right:0;
+    height:5px;
+    background:#f97316;
+  }
+  .card-front::before { top:0; }
+  .card-front::after  { bottom:0; }
+
+  .front-logo {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:72px;
+    letter-spacing:.04em;
+    color:#fff;
+    line-height:1;
+    margin-bottom:6px;
+  }
+
+  .front-rule {
+    width:220px;
+    height:2px;
+    background:#f97316;
+    margin-bottom:10px;
+  }
+
+  .front-sub {
+    font-family:'Inter',sans-serif;
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:#888;
+  }
+
+  /* ── BACK ── */
+  .card-back {
+    background: #0f0f0f;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:0;
+  }
+
+  .card-back::before,
+  .card-back::after {
+    content:'';
+    position:absolute;
+    left:0; right:0;
+    height:5px;
+    background:#f97316;
+  }
+  .card-back::before { top:0; }
+  .card-back::after  { bottom:0; }
+
+  .back-inner {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    height:100%;
+    padding:22px 28px 22px 28px;
+    gap:0;
+  }
+
+  .back-wordmark {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:18px;
+    letter-spacing:.15em;
+    color:#f97316;
+    margin-bottom:14px;
+    line-height:1;
+  }
+
+  .back-name {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:.06em;
+    color:#fff;
+    line-height:1;
+    margin-bottom:3px;
+  }
+
+  .back-role {
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:#888;
+    margin-bottom:18px;
+  }
+
+  .back-contacts {
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .back-contact-row {
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .back-contact-dot {
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#f97316;
+    flex-shrink:0;
+  }
+
+  .back-contact-val {
+    font-size:11px;
+    font-weight:500;
+    color:#e0e0e0;
+    letter-spacing:.02em;
+  }
+
+  .back-tagline {
+    position:absolute;
+    bottom:14px;
+    right:20px;
+    font-size:8.5px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#444;
+  }
+
+  /* Print styles */
+  @media print {
+    body {
+      background:white;
+      padding:10px;
+      gap:20px;
+    }
+    .section-label, .card-name-label { color:#aaa; }
+    .card {
+      box-shadow: none;
+      border: 1px solid #ddd;
+    }
+    /* Force page breaks so front/back pairs print nicely */
+    .card-pair:nth-child(4) { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<p class="section-label">Front — both cards are identical</p>
+
+<div class="card-pair">
+  <div class="card-wrap">
+    <div class="card card-front">
+      <div class="front-logo">JUNKERD</div>
+      <div class="front-rule"></div>
+      <div class="front-sub">Junk Removal &amp; Hauling</div>
+    </div>
+    <span class="card-name-label">Front</span>
+  </div>
+</div>
+
+<p class="section-label">Back — one per person</p>
+
+<div class="card-pair">
+
+  <!-- NOAH'S CARD -->
+  <div class="card-wrap">
+    <div class="card card-back">
+      <div class="back-inner">
+        <div class="back-wordmark">JUNKERD</div>
+        <div class="back-name">NOAH VICKERS</div>
+        <div class="back-role">Owner &amp; Operator</div>
+        <div class="back-contacts">
+          <div class="back-contact-row">
+            <div class="back-contact-dot"></div>
+            <span class="back-contact-val">(513) 808-8706</span>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-dot"></div>
+            <span class="back-contact-val">junkerdservices@gmail.com</span>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-dot"></div>
+            <span class="back-contact-val">Cincinnati, OH &amp; Surrounding Areas</span>
+          </div>
+        </div>
+      </div>
+      <div class="back-tagline">Free Quotes · Same-Day Available</div>
+    </div>
+    <span class="card-name-label">Noah</span>
+  </div>
+
+  <!-- JOHN'S CARD -->
+  <div class="card-wrap">
+    <div class="card card-back">
+      <div class="back-inner">
+        <div class="back-wordmark">JUNKERD</div>
+        <div class="back-name">JOHN CARMICHAEL</div>
+        <div class="back-role">Owner &amp; Operator</div>
+        <div class="back-contacts">
+          <div class="back-contact-row">
+            <div class="back-contact-dot"></div>
+            <span class="back-contact-val">(513) 808-8706</span>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-dot"></div>
+            <span class="back-contact-val">junkerdservices@gmail.com</span>
+          </div>
+          <div class="back-contact-row">
+            <div class="back-contact-dot"></div>
+            <span class="back-contact-val">Cincinnati, OH &amp; Surrounding Areas</span>
+          </div>
+        </div>
+      </div>
+      <div class="back-tagline">Free Quotes · Same-Day Available</div>
+    </div>
+    <span class="card-name-label">John</span>
+  </div>
+
+</div>
+
+</body>
+</html>
