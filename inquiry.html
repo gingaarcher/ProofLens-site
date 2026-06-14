@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit an Inquiry — Vickers & Carmichael</title>
+    <meta name="description" content="Submit a detailed inquiry to Vickers & Carmichael for junk removal, hauling, scrap pickup, and dump runs in Cincinnati, OH.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:      #0d0d0d;
+            --bg2:     #141414;
+            --card:    #1a1a1a;
+            --border:  #272727;
+            --text:    #e8e8e8;
+            --muted:   #7a7a7a;
+            --steel:   #94a3b8;
+            --accent:  #f97316;
+            --accent-d:#e06510;
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; }
+        h1,h2,h3 { font-family:'Bebas Neue',sans-serif; letter-spacing:.05em; line-height:1.05; }
+
+        /* NAV */
+        nav {
+            position:fixed; top:0; left:0; right:0; z-index:200;
+            background:rgba(13,13,13,.96); backdrop-filter:blur(12px);
+            border-bottom:1px solid var(--border);
+            height:62px; padding:0 2rem;
+            display:flex; align-items:center; justify-content:space-between;
+        }
+        .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:.1em; color:var(--text); text-decoration:none; }
+        .nav-logo span { color:var(--accent); }
+        .nav-links { display:flex; gap:2rem; list-style:none; }
+        .nav-links a { color:var(--muted); text-decoration:none; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:color .2s; }
+        .nav-links a:hover { color:var(--accent); }
+        .nav-links a.active { color:var(--accent); }
+        .nav-cta { background:var(--accent) !important; color:#000 !important; padding:.45rem 1.1rem !important; border-radius:4px; }
+        .nav-cta:hover { background:var(--accent-d) !important; }
+        .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:.4rem; }
+        .hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding:9rem 2rem 4rem;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(249,115,22,.06) 0%, transparent 55%),
+                var(--bg);
+            border-bottom:1px solid var(--border);
+            text-align:center;
+        }
+        .page-header .pill {
+            display:inline-flex; align-items:center;
+            background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25);
+            color:var(--accent); font-size:.7rem; font-weight:700;
+            letter-spacing:.15em; text-transform:uppercase;
+            padding:.35rem 1rem; border-radius:100px; margin-bottom:1.25rem;
+        }
+        .page-header h1 { font-size:clamp(2.5rem,7vw,5.5rem); margin-bottom:.75rem; }
+        .page-header h1 em { color:var(--accent); font-style:normal; }
+        .page-header p { color:var(--steel); font-size:1rem; max-width:520px; margin:0 auto; font-weight:300; }
+
+        /* FORM SECTION */
+        .inq-section { padding:5rem 2rem; }
+        .inq-wrap { max-width:860px; margin:0 auto; }
+        .inq-grid { display:grid; grid-template-columns:1fr 2fr; gap:3.5rem; align-items:start; }
+
+        /* SIDEBAR */
+        .inq-sidebar { position:sticky; top:90px; }
+        .sidebar-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.75rem; margin-bottom:1.25rem; }
+        .sidebar-title { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:.05em; margin-bottom:1rem; color:var(--accent); }
+        .sidebar-item { display:flex; align-items:flex-start; gap:.75rem; margin-bottom:1rem; }
+        .sidebar-item:last-child { margin-bottom:0; }
+        .sidebar-icon { font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
+        .sidebar-lbl { font-size:.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:.1rem; }
+        .sidebar-val { font-size:.875rem; font-weight:600; }
+        .sidebar-val a { color:var(--text); text-decoration:none; transition:color .2s; }
+        .sidebar-val a:hover { color:var(--accent); }
+        .why-list { list-style:none; }
+        .why-list li { display:flex; align-items:flex-start; gap:.65rem; font-size:.85rem; color:var(--muted); padding:.45rem 0; border-bottom:1px solid var(--border); line-height:1.5; }
+        .why-list li:last-child { border-bottom:none; }
+        .why-list li::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; margin-top:.05rem; }
+
+        /* FORM */
+        .inq-form-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:2.5rem; }
+        .form-section-title {
+            font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:.07em;
+            color:var(--accent); margin-bottom:1.25rem; padding-bottom:.6rem;
+            border-bottom:1px solid var(--border);
+        }
+        .form-block { margin-bottom:2rem; }
+        .form { display:flex; flex-direction:column; gap:.85rem; }
+        .frow { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+        .fg { display:flex; flex-direction:column; gap:.35rem; }
+        .fg label { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+        .fg input, .fg select, .fg textarea {
+            background:var(--bg); border:1px solid var(--border); border-radius:5px;
+            color:var(--text); padding:.7rem .9rem; font-family:'Inter',sans-serif; font-size:.875rem;
+            outline:none; transition:border-color .2s;
+        }
+        .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--accent); }
+        .fg select option { background:var(--bg2); }
+        .fg textarea { resize:vertical; min-height:100px; }
+        .fg input[type="file"] { padding:.55rem .9rem; cursor:pointer; }
+
+        /* CHECKBOXES */
+        .check-group { display:flex; flex-direction:column; gap:.5rem; }
+        .check-item { display:flex; align-items:center; gap:.75rem; cursor:pointer; }
+        .check-item input[type="checkbox"] { accent-color:var(--accent); width:16px; height:16px; flex-shrink:0; cursor:pointer; }
+        .check-item span { font-size:.875rem; color:var(--text); }
+
+        /* RADIO */
+        .radio-group { display:flex; flex-direction:column; gap:.5rem; }
+        .radio-item { display:flex; align-items:center; gap:.75rem; cursor:pointer; }
+        .radio-item input[type="radio"] { accent-color:var(--accent); width:16px; height:16px; flex-shrink:0; cursor:pointer; }
+        .radio-item span { font-size:.875rem; color:var(--text); }
+
+        /* RANGE */
+        .range-wrap { display:flex; align-items:center; gap:1rem; }
+        .range-wrap input[type="range"] { flex:1; accent-color:var(--accent); }
+        .range-val { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--accent); min-width:60px; text-align:right; }
+
+        /* SUBMIT */
+        .btn-primary {
+            background:var(--accent); color:#000; text-decoration:none;
+            padding:.85rem 2rem; border-radius:5px; font-weight:700; font-size:.875rem;
+            letter-spacing:.07em; text-transform:uppercase; border:none; cursor:pointer;
+            display:inline-flex; align-items:center; gap:.5rem;
+            transition:background .2s, transform .15s; width:100%; justify-content:center;
+        }
+        .btn-primary:hover { background:var(--accent-d); transform:translateY(-1px); }
+
+        /* SUCCESS */
+        .success-screen {
+            display:none; text-align:center; padding:3rem 1rem;
+        }
+        .success-icon { font-size:4rem; margin-bottom:1rem; }
+        .success-title { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; letter-spacing:.05em; margin-bottom:.75rem; }
+        .success-sub { color:var(--muted); font-size:.95rem; max-width:420px; margin:0 auto 2rem; }
+
+        /* FOOTER */
+        footer { background:#080808; border-top:1px solid var(--border); padding:2.5rem 2rem; }
+        .foot-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.25rem; }
+        .foot-logo { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.1em; }
+        .foot-logo span { color:var(--accent); }
+        .foot-copy { color:var(--muted); font-size:.75rem; margin-top:.25rem; }
+        .foot-links { display:flex; gap:1.5rem; list-style:none; }
+        .foot-links a { color:var(--muted); text-decoration:none; font-size:.775rem; transition:color .2s; }
+        .foot-links a:hover { color:var(--accent); }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .nav-links { display:none; }
+            .hamburger { display:flex; }
+            .nav-links.open {
+                display:flex; flex-direction:column;
+                position:fixed; top:62px; left:0; right:0;
+                background:var(--bg); border-bottom:1px solid var(--border);
+                padding:2rem; gap:1.5rem;
+            }
+            .inq-grid { grid-template-columns:1fr; }
+            .inq-sidebar { position:static; }
+            .frow { grid-template-columns:1fr; }
+            .inq-form-card { padding:1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="index.html" class="nav-logo">VICKERS<span> &amp; CARMICHAEL</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#quiz">Find My Service</a></li>
+        <li><a href="index.html#process">How It Works</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="inquiry.html" class="active">Inquiry</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hbg" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <div class="pill">📋 Free Estimate</div>
+    <h1>SUBMIT AN <em>INQUIRY</em></h1>
+    <p>Tell us about your job in detail and we'll put together an accurate, free estimate and get back to you fast.</p>
+</div>
+
+<!-- FORM SECTION -->
+<section class="inq-section">
+    <div class="inq-wrap">
+        <div class="inq-grid">
+
+            <!-- SIDEBAR -->
+            <div class="inq-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-title">Contact Us Directly</div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-icon">📞</div>
+                        <div>
+                            <div class="sidebar-lbl">Call or Text</div>
+                            <div class="sidebar-val"><a href="tel:+15555555555">(555) 555-5555</a></div>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-icon">✉️</div>
+                        <div>
+                            <div class="sidebar-lbl">Email</div>
+                            <div class="sidebar-val"><a href="mailto:info@vickersandcarmichael.com">info@<br>vickersandcarmichael.com</a></div>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-icon">📍</div>
+                        <div>
+                            <div class="sidebar-lbl">Service Area</div>
+                            <div class="sidebar-val">Cincinnati, OH &amp; Surrounding</div>
+                        </div>
+                    </div>
+                    <div class="sidebar-item">
+                        <div class="sidebar-icon">🕐</div>
+                        <div>
+                            <div class="sidebar-lbl">Hours</div>
+                            <div class="sidebar-val">Mon–Sat: 7am–7pm</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">Why Choose Us</div>
+                    <ul class="why-list">
+                        <li>Free, no-obligation estimates</li>
+                        <li>Same-day hauling available</li>
+                        <li>Owner-operated — no middleman</li>
+                        <li>We do the heavy lifting for you</li>
+                        <li>Serving greater Cincinnati area</li>
+                        <li>Fast response, fair pricing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="inq-form-card">
+                <form class="form" id="inqForm">
+
+                    <!-- CONTACT INFO -->
+                    <div class="form-block">
+                        <div class="form-section-title">Your Contact Information</div>
+                        <div class="frow">
+                            <div class="fg"><label>First Name *</label><input type="text" name="first_name" placeholder="John" required></div>
+                            <div class="fg"><label>Last Name *</label><input type="text" name="last_name" placeholder="Smith" required></div>
+                        </div>
+                        <div class="frow">
+                            <div class="fg"><label>Phone Number *</label><input type="tel" name="phone" placeholder="(513) 555-0000" required></div>
+                            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com"></div>
+                        </div>
+                        <div class="fg"><label>Best Time to Reach You</label>
+                            <select name="best_time">
+                                <option value="" disabled selected>Select a time…</option>
+                                <option>Morning (7am–11am)</option>
+                                <option>Midday (11am–2pm)</option>
+                                <option>Afternoon (2pm–5pm)</option>
+                                <option>Evening (5pm–7pm)</option>
+                                <option>Anytime</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- JOB DETAILS -->
+                    <div class="form-block">
+                        <div class="form-section-title">Job Details</div>
+                        <div class="fg">
+                            <label>Type of Service Needed *</label>
+                            <select name="service" required>
+                                <option value="" disabled selected>Select a service…</option>
+                                <option>Junk Removal / Property Cleanout</option>
+                                <option>Dump Run</option>
+                                <option>Moving &amp; Hauling Help</option>
+                                <option>Scrap Metal Pickup</option>
+                                <option>Yard &amp; Outdoor Cleanup</option>
+                                <option>Commercial Cleanout</option>
+                                <option>Multiple Services</option>
+                                <option>Not Sure — Need Help Deciding</option>
+                            </select>
+                        </div>
+                        <div class="fg">
+                            <label>What Materials or Items Are Involved?</label>
+                            <div class="check-group" style="margin-top:.5rem">
+                                <label class="check-item"><input type="checkbox" name="materials" value="furniture"><span>Furniture &amp; household items</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="appliances"><span>Appliances (fridges, washers, dryers, etc.)</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="scrap_metal"><span>Scrap metal &amp; metal parts</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="construction"><span>Construction / demo debris</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="electronics"><span>Electronics &amp; e-waste</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="yard"><span>Yard debris, dirt, landscaping material</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="general"><span>General trash &amp; bags</span></label>
+                                <label class="check-item"><input type="checkbox" name="materials" value="other"><span>Other / not listed</span></label>
+                            </div>
+                        </div>
+                        <div class="fg">
+                            <label>Estimated Load Size *</label>
+                            <select name="load_size" required>
+                                <option value="" disabled selected>Select a size…</option>
+                                <option>Small — a few items (half truck or less)</option>
+                                <option>Medium — a full truck load</option>
+                                <option>Large — multiple truck loads</option>
+                                <option>Whole property / estate cleanout</option>
+                                <option>Not sure — need your assessment</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- LOCATION -->
+                    <div class="form-block">
+                        <div class="form-section-title">Job Location</div>
+                        <div class="fg"><label>Street Address (or general area)</label><input type="text" name="address" placeholder="123 Main St or Anderson Township area"></div>
+                        <div class="frow">
+                            <div class="fg"><label>City *</label><input type="text" name="city" placeholder="Cincinnati" required></div>
+                            <div class="fg"><label>Zip Code</label><input type="text" name="zip" placeholder="45202"></div>
+                        </div>
+                        <div class="fg">
+                            <label>Where Is the Material Located?</label>
+                            <div class="check-group" style="margin-top:.5rem">
+                                <label class="check-item"><input type="checkbox" name="location_type" value="inside"><span>Inside the home (rooms, basement, attic)</span></label>
+                                <label class="check-item"><input type="checkbox" name="location_type" value="garage"><span>Garage or shed</span></label>
+                                <label class="check-item"><input type="checkbox" name="location_type" value="yard"><span>Outside / yard</span></label>
+                                <label class="check-item"><input type="checkbox" name="location_type" value="commercial"><span>Commercial or rental property</span></label>
+                                <label class="check-item"><input type="checkbox" name="location_type" value="driveway"><span>Driveway / curbside (already staged)</span></label>
+                            </div>
+                        </div>
+                        <div class="fg">
+                            <label>Any Access Challenges?</label>
+                            <select name="access">
+                                <option value="">None — easy access</option>
+                                <option>Narrow driveway or tight space</option>
+                                <option>No vehicle access — walking distance only</option>
+                                <option>Stairs involved (basement, upper floors)</option>
+                                <option>Gated property</option>
+                                <option>Other — I'll describe below</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- TIMING -->
+                    <div class="form-block">
+                        <div class="form-section-title">Timing &amp; Urgency</div>
+                        <div class="fg">
+                            <label>How Soon Do You Need This Done? *</label>
+                            <div class="radio-group" style="margin-top:.5rem">
+                                <label class="radio-item"><input type="radio" name="urgency" value="asap" required><span>ASAP — as soon as possible</span></label>
+                                <label class="radio-item"><input type="radio" name="urgency" value="this_week"><span>This week</span></label>
+                                <label class="radio-item"><input type="radio" name="urgency" value="next_week"><span>Next week</span></label>
+                                <label class="radio-item"><input type="radio" name="urgency" value="flexible"><span>Flexible — I'm not in a rush</span></label>
+                            </div>
+                        </div>
+                        <div class="fg"><label>Preferred Date (if any)</label><input type="date" name="preferred_date"></div>
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <div class="form-block">
+                        <div class="form-section-title">Tell Us More</div>
+                        <div class="fg">
+                            <label>Describe the Job in Your Own Words *</label>
+                            <textarea name="description" rows="5" placeholder="Give us as much detail as you can — what needs to go, where it is, how long it's been there, what's worked or hasn't before, anything that helps us understand the job. The more you tell us, the more accurate our quote will be." required></textarea>
+                        </div>
+                        <div class="fg">
+                            <label>How Did You Hear About Us?</label>
+                            <select name="referral">
+                                <option value="">Select one…</option>
+                                <option>Google Search</option>
+                                <option>Word of Mouth / Referral</option>
+                                <option>Facebook / Social Media</option>
+                                <option>Nextdoor</option>
+                                <option>Craigslist</option>
+                                <option>Saw the truck</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="fg">
+                            <label>Anything Else We Should Know?</label>
+                            <textarea name="notes" rows="3" placeholder="Special instructions, access codes, pets on property, anything else…"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Submit My Inquiry ▶</button>
+                    <p style="color:var(--muted);font-size:.775rem;text-align:center;margin-top:.75rem">We'll review your inquiry and get back to you with a free estimate — usually within a few hours.</p>
+                </form>
+
+                <!-- SUCCESS STATE -->
+                <div class="success-screen" id="successScreen">
+                    <div class="success-icon">✅</div>
+                    <div class="success-title">INQUIRY RECEIVED!</div>
+                    <p class="success-sub">Thanks for reaching out. We'll review your details and get back to you with a free estimate — usually within a few hours.</p>
+                    <a href="index.html" class="btn-primary" style="max-width:280px;margin:0 auto">← Back to Home</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div>
+            <div class="foot-logo">VICKERS<span> &amp; CARMICHAEL</span></div>
+            <div class="foot-copy">© 2025 Vickers &amp; Carmichael. All rights reserved.</div>
+        </div>
+        <ul class="foot-links">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#quiz">Find My Service</a></li>
+            <li><a href="inquiry.html">Inquiry</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script>
+document.getElementById('hbg').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+});
+
+document.getElementById('inqForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo({ top: document.querySelector('.inq-form-card').offsetTop - 80, behavior:'smooth' });
+});
+</script>
+</body>
+</html>
