@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vickers & Carmichael — Junk Removal & Hauling | Cincinnati, OH</title>
-    <meta name="description" content="Junk removal, hauling, scrap pickup & dump runs in Cincinnati, OH. Full property cleanouts, moving help, scrap metal pickup. Call Vickers & Carmichael.">
+    <meta name="description" content="Junk removal, hauling, scrap pickup & dump runs in Cincinnati, OH. Owner-operated, same-day available. Call (513) 808-8706 for a free quote.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -12,7 +12,7 @@
             --bg:      #0d0d0d;
             --bg2:     #141414;
             --card:    #1a1a1a;
-            --border:  #272727;
+            --border:  #252525;
             --text:    #e8e8e8;
             --muted:   #7a7a7a;
             --steel:   #94a3b8;
@@ -27,134 +27,153 @@
         /* NAV */
         nav {
             position:fixed; top:0; left:0; right:0; z-index:200;
-            background:rgba(13,13,13,.96); backdrop-filter:blur(12px);
+            background:rgba(13,13,13,.97); backdrop-filter:blur(12px);
             border-bottom:1px solid var(--border);
-            height:62px; padding:0 2rem;
+            height:64px; padding:0 2rem;
             display:flex; align-items:center; justify-content:space-between;
         }
         .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:.1em; color:var(--text); text-decoration:none; }
         .nav-logo span { color:var(--accent); }
         .nav-links { display:flex; gap:2rem; list-style:none; }
-        .nav-links a { color:var(--muted); text-decoration:none; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:color .2s; }
-        .nav-links a:hover { color:var(--accent); }
-        .nav-cta { background:var(--accent) !important; color:#000 !important; padding:.45rem 1.1rem !important; border-radius:4px; }
-        .nav-cta:hover { background:var(--accent-d) !important; }
+        .nav-links a { color:var(--muted); text-decoration:none; font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:color .2s; }
+        .nav-links a:hover { color:var(--text); }
+        .nav-cta { background:var(--accent) !important; color:#000 !important; padding:.4rem 1.1rem !important; border-radius:4px; }
+        .nav-cta:hover { background:var(--accent-d) !important; color:#000 !important; }
         .hamburger { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; padding:.4rem; }
         .hamburger span { display:block; width:22px; height:2px; background:var(--text); border-radius:2px; }
 
         /* HERO */
-        .hero { min-height:100vh; display:flex; align-items:center; padding:7rem 2rem 5rem; position:relative; overflow:hidden; }
-        .hero-bg {
-            position:absolute; inset:0;
-            background:
-                radial-gradient(ellipse at 15% 55%, rgba(249,115,22,.07) 0%, transparent 55%),
-                radial-gradient(ellipse at 85% 15%, rgba(249,115,22,.04) 0%, transparent 50%),
-                #0d0d0d;
+        .hero {
+            min-height:100vh; display:flex; align-items:center;
+            padding:7rem 2rem 5rem; position:relative; overflow:hidden;
+            background: linear-gradient(160deg, #111 0%, #0d0d0d 60%);
         }
-        .hero-grid {
-            position:absolute; inset:0;
-            background-image:
-                linear-gradient(rgba(249,115,22,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(249,115,22,.025) 1px, transparent 1px);
-            background-size:56px 56px;
+        .hero::before {
+            content:''; position:absolute; top:0; right:0;
+            width:50%; height:100%;
+            background: radial-gradient(ellipse at 80% 40%, rgba(249,115,22,.06) 0%, transparent 65%);
+            pointer-events:none;
         }
-        .hero-content { position:relative; max-width:920px; margin:0 auto; width:100%; }
-        .pill {
-            display:inline-flex; align-items:center; gap:.5rem;
-            background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.25);
+        .hero-content { position:relative; max-width:900px; margin:0 auto; width:100%; }
+        .eyebrow {
+            display:inline-flex; align-items:center; gap:.6rem;
             color:var(--accent); font-size:.7rem; font-weight:700;
-            letter-spacing:.15em; text-transform:uppercase;
-            padding:.35rem 1rem; border-radius:100px; margin-bottom:1.75rem;
+            letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.5rem;
         }
-        .hero h1 { font-size:clamp(3.2rem,9vw,7.5rem); margin-bottom:1.5rem; }
+        .eyebrow-line { width:28px; height:2px; background:var(--accent); border-radius:1px; }
+        .hero h1 { font-size:clamp(3rem,9vw,7.5rem); margin-bottom:1.5rem; }
         .hero h1 em { color:var(--accent); font-style:normal; }
-        .hero-sub { font-size:1.05rem; color:var(--steel); max-width:500px; margin-bottom:2.5rem; font-weight:300; }
-        .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+        .hero-sub { font-size:1.05rem; color:var(--steel); max-width:480px; margin-bottom:2.5rem; font-weight:300; line-height:1.75; }
+        .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem; }
         .btn-primary {
             background:var(--accent); color:#000; text-decoration:none;
-            padding:.85rem 2rem; border-radius:5px; font-weight:700; font-size:.85rem;
-            letter-spacing:.07em; text-transform:uppercase; border:none; cursor:pointer;
+            padding:.85rem 2rem; border-radius:4px; font-weight:700; font-size:.8rem;
+            letter-spacing:.1em; text-transform:uppercase; border:none; cursor:pointer;
             display:inline-flex; align-items:center; gap:.5rem;
             transition:background .2s, transform .15s;
         }
         .btn-primary:hover { background:var(--accent-d); transform:translateY(-1px); }
         .btn-ghost {
-            border:1px solid var(--border); color:var(--text); text-decoration:none;
-            padding:.85rem 2rem; border-radius:5px; font-weight:500; font-size:.85rem;
-            letter-spacing:.07em; text-transform:uppercase; transition:border-color .2s, color .2s;
+            border:1px solid #333; color:var(--muted); text-decoration:none;
+            padding:.85rem 2rem; border-radius:4px; font-weight:500; font-size:.8rem;
+            letter-spacing:.1em; text-transform:uppercase; transition:border-color .2s, color .2s;
         }
-        .btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
-        .hero-stats { display:flex; gap:3rem; flex-wrap:wrap; margin-top:4rem; padding-top:2.5rem; border-top:1px solid var(--border); }
-        .stat-val { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--accent); letter-spacing:.05em; line-height:1; }
-        .stat-lbl { font-size:.7rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-top:.2rem; }
+        .btn-ghost:hover { border-color:var(--text); color:var(--text); }
+
+        .hero-stats { display:flex; gap:3.5rem; flex-wrap:wrap; padding-top:2.5rem; border-top:1px solid var(--border); }
+        .stat-val { font-family:'Bebas Neue',sans-serif; font-size:2.6rem; color:var(--text); letter-spacing:.02em; line-height:1; }
+        .stat-val span { color:var(--accent); }
+        .stat-lbl { font-size:.68rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-top:.25rem; }
+
+        /* TRUST BAR */
+        .trust-bar {
+            background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+            padding:1.25rem 2rem;
+        }
+        .trust-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:3rem; flex-wrap:wrap; }
+        .trust-item { display:flex; align-items:center; gap:.6rem; color:var(--muted); font-size:.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+        .trust-item svg { color:var(--accent); flex-shrink:0; }
 
         /* LAYOUT */
         section { padding:6rem 2rem; }
         .wrap { max-width:1100px; margin:0 auto; }
-        .sec-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem; }
-        .sec-title { font-size:clamp(2.2rem,5.5vw,4rem); margin-bottom:.75rem; }
-        .sec-sub { color:var(--muted); font-size:.95rem; max-width:520px; margin-bottom:3rem; }
+        .sec-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.5rem; }
+        .sec-title { font-size:clamp(2.2rem,5.5vw,3.75rem); margin-bottom:.75rem; }
+        .sec-sub { color:var(--muted); font-size:.95rem; max-width:500px; margin-bottom:3rem; line-height:1.75; }
 
         /* SERVICES */
         #services { background:var(--bg2); }
-        .svc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.25rem; }
+        .svc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
         .svc-card {
-            background:var(--card); border:1px solid var(--border); border-radius:10px;
-            padding:1.75rem; position:relative; overflow:hidden;
-            transition:border-color .25s, transform .2s;
+            background:var(--card); padding:2rem 1.75rem;
+            position:relative; transition:background .2s;
         }
-        .svc-card:hover { border-color:var(--accent); transform:translateY(-3px); }
-        .svc-card::after {
-            content:''; position:absolute; top:0; left:0; right:0; height:3px;
-            background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s;
+        .svc-card:hover { background:#1e1e1e; }
+        .svc-card:hover .svc-icon-wrap { border-color:var(--accent); }
+        .svc-icon-wrap {
+            width:48px; height:48px; border:1px solid var(--border); border-radius:8px;
+            display:flex; align-items:center; justify-content:center;
+            margin-bottom:1.25rem; transition:border-color .2s;
+            color:var(--accent);
         }
-        .svc-card:hover::after { transform:scaleX(1); }
-        .svc-icon { font-size:2.25rem; margin-bottom:.9rem; }
-        .svc-title { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.05em; margin-bottom:.4rem; }
+        .svc-title { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:.04em; margin-bottom:.5rem; }
         .svc-desc { color:var(--muted); font-size:.875rem; line-height:1.75; }
-        .svc-tag { display:inline-block; background:rgba(249,115,22,.1); color:var(--accent); font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .6rem; border-radius:3px; margin-top:1rem; }
+        .svc-tag { display:inline-block; color:var(--accent); font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-top:1rem; }
+
+        /* TESTIMONIALS */
+        #testimonials { background:var(--bg); }
+        .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.25rem; margin-top:3rem; }
+        .testi-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1.75rem; }
+        .testi-stars { display:flex; gap:3px; margin-bottom:1rem; }
+        .testi-stars span { color:var(--accent); font-size:.95rem; }
+        .testi-text { color:var(--steel); font-size:.9rem; line-height:1.8; margin-bottom:1.25rem; }
+        .testi-author { display:flex; align-items:center; gap:.75rem; }
+        .testi-avatar { width:36px; height:36px; border-radius:50%; background:var(--bg2); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--accent); flex-shrink:0; }
+        .testi-name { font-size:.8rem; font-weight:700; color:var(--text); }
+        .testi-loc { font-size:.72rem; color:var(--muted); }
+        .testi-source { margin-left:auto; color:var(--muted); font-size:.7rem; font-weight:600; letter-spacing:.05em; }
 
         /* QUIZ */
-        #quiz { background:var(--bg); }
-        .quiz-wrap { background:#222; border:1px solid #333; border-radius:14px; padding:2.75rem; max-width:740px; margin:2.5rem auto 0; }
+        #quiz { background:var(--bg2); }
+        .quiz-wrap { background:#1e1e1e; border:1px solid #2a2a2a; border-radius:12px; padding:2.75rem; max-width:740px; margin:2.5rem auto 0; }
         .quiz-bar { display:flex; gap:5px; margin-bottom:2.5rem; }
-        .quiz-dot { height:4px; flex:1; border-radius:2px; background:#3a3a3a; transition:background .3s; }
+        .quiz-dot { height:3px; flex:1; border-radius:2px; background:#2a2a2a; transition:background .3s; }
         .quiz-dot.on { background:var(--accent); }
-        .quiz-dot.done { background:rgba(249,115,22,.4); }
+        .quiz-dot.done { background:rgba(249,115,22,.35); }
         .quiz-step { display:none; }
         .quiz-step.active { display:block; }
         .quiz-q { font-family:'Bebas Neue',sans-serif; font-size:1.9rem; letter-spacing:.04em; margin-bottom:.35rem; color:#fff; }
-        .quiz-hint { color:#bbb; font-size:.825rem; margin-bottom:1.75rem; }
-        .quiz-opts { display:flex; flex-direction:column; gap:.65rem; }
+        .quiz-hint { color:#888; font-size:.825rem; margin-bottom:1.75rem; }
+        .quiz-opts { display:flex; flex-direction:column; gap:.6rem; }
         .qopt {
             display:flex; align-items:flex-start; gap:.9rem;
-            padding:.9rem 1.1rem; background:#2a2a2a;
-            border:1.5px solid #3a3a3a; border-radius:8px;
+            padding:.9rem 1.1rem; background:#252525;
+            border:1px solid #333; border-radius:8px;
             cursor:pointer; text-align:left; width:100%;
             transition:border-color .2s, background .2s;
         }
-        .qopt:hover { border-color:var(--accent); background:#2f2a24; }
-        .qopt.sel  { border-color:var(--accent); background:#2f2a24; }
-        .qopt-icon { font-size:1.4rem; flex-shrink:0; margin-top:.05rem; }
-        .qopt strong { display:block; font-size:.9rem; font-weight:600; margin-bottom:.15rem; color:#f0f0f0; }
-        .qopt small  { color:#aaa; font-size:.775rem; }
+        .qopt:hover { border-color:var(--accent); background:#2a2218; }
+        .qopt.sel  { border-color:var(--accent); background:#2a2218; }
+        .qopt-icon { font-size:1.3rem; flex-shrink:0; margin-top:.05rem; color:var(--accent); }
+        .qopt strong { display:block; font-size:.875rem; font-weight:600; margin-bottom:.1rem; color:#eee; }
+        .qopt small  { color:#888; font-size:.775rem; }
         .quiz-nav { display:flex; justify-content:space-between; align-items:center; margin-top:1.75rem; }
-        .btn-back { background:none; border:none; color:#aaa; font-size:.825rem; cursor:pointer; padding:.4rem; transition:color .2s; }
-        .btn-back:hover { color:#fff; }
-        .btn-next { background:var(--accent); color:#000; border:none; padding:.7rem 1.75rem; border-radius:5px; font-weight:700; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
+        .btn-back { background:none; border:none; color:#666; font-size:.8rem; cursor:pointer; padding:.4rem; transition:color .2s; }
+        .btn-back:hover { color:#ccc; }
+        .btn-next { background:var(--accent); color:#000; border:none; padding:.7rem 1.75rem; border-radius:4px; font-weight:700; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
         .btn-next:hover { background:var(--accent-d); }
-        .btn-next:disabled { opacity:.35; cursor:not-allowed; }
-        .result-badge { display:inline-block; background:rgba(249,115,22,.15); border:1px solid rgba(249,115,22,.4); color:var(--accent); font-size:.7rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:.35rem 1rem; border-radius:100px; margin-bottom:1.25rem; }
+        .btn-next:disabled { opacity:.3; cursor:not-allowed; }
+        .result-badge { display:inline-block; background:rgba(249,115,22,.12); border:1px solid rgba(249,115,22,.3); color:var(--accent); font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:.3rem 1rem; border-radius:4px; margin-bottom:1.25rem; }
         .result-title { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; letter-spacing:.05em; margin-bottom:.65rem; color:#fff; }
-        .result-desc { color:#bbb; font-size:.9rem; max-width:480px; margin:0 auto 1.5rem; }
+        .result-desc { color:#999; font-size:.9rem; max-width:480px; margin:0 auto 1.5rem; }
 
         /* FORMS */
         .form { display:flex; flex-direction:column; gap:.85rem; }
         .frow { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
         .fg { display:flex; flex-direction:column; gap:.35rem; }
-        .fg label { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+        .fg label { font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
         .fg input, .fg select, .fg textarea {
-            background:var(--bg); border:1px solid var(--border); border-radius:5px;
+            background:#111; border:1px solid var(--border); border-radius:4px;
             color:var(--text); padding:.7rem .9rem; font-family:'Inter',sans-serif; font-size:.875rem;
             outline:none; transition:border-color .2s;
         }
@@ -163,55 +182,64 @@
         .fg textarea { resize:vertical; min-height:90px; }
 
         /* PROCESS */
-        #process { background:var(--bg2); }
-        .proc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; margin-top:3rem; }
-        .proc-step { padding:2rem 1.5rem; text-align:center; }
-        .proc-num { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:rgba(249,115,22,.12); line-height:1; margin-bottom:.35rem; }
-        .proc-title { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.05em; margin-bottom:.4rem; }
+        #process { background:var(--bg); }
+        .proc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0; margin-top:3rem; }
+        .proc-step { padding:2rem 1.75rem; border-left:1px solid var(--border); }
+        .proc-step:first-child { border-left:none; padding-left:0; }
+        .proc-num { font-family:'Bebas Neue',sans-serif; font-size:3.5rem; color:rgba(249,115,22,.1); line-height:1; margin-bottom:.5rem; }
+        .proc-title { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.04em; margin-bottom:.5rem; }
         .proc-desc { color:var(--muted); font-size:.85rem; line-height:1.75; }
 
         /* ABOUT */
-        #about { background:var(--bg); }
-        .about-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:4rem; align-items:center; }
-        .about-vis { border-radius:12px; background:var(--card); border:1px solid var(--border); height:360px; display:flex; align-items:center; justify-content:center; text-align:center; }
-        .about-vis-icon { font-size:4.5rem; margin-bottom:.75rem; }
-        .about-vis p { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:.12em; color:var(--muted); }
-        .about-text h2 { margin-bottom:.9rem; }
-        .about-text p { color:var(--muted); font-size:.9rem; line-height:1.85; margin-bottom:.9rem; }
+        #about { background:var(--bg2); }
+        .about-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:5rem; align-items:center; }
+        .about-left { }
+        .about-stat-stack { display:flex; flex-direction:column; gap:1.25rem; }
+        .about-stat { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.5rem 1.75rem; display:flex; align-items:center; gap:1.25rem; }
+        .about-stat-num { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:var(--accent); line-height:1; min-width:80px; }
+        .about-stat-lbl { font-size:.8rem; color:var(--muted); line-height:1.5; }
+        .about-stat-lbl strong { display:block; color:var(--text); font-size:.875rem; margin-bottom:.15rem; }
+        .about-text { }
+        .about-text h2 { margin-bottom:1rem; }
+        .about-text p { color:var(--muted); font-size:.9rem; line-height:1.9; margin-bottom:1rem; }
         .about-text strong { color:var(--text); }
-        .badges { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.25rem; }
-        .badge { display:flex; align-items:center; gap:.4rem; background:var(--card); border:1px solid var(--border); border-radius:5px; padding:.45rem .85rem; font-size:.75rem; font-weight:600; }
+        .about-cta { margin-top:1.75rem; display:flex; gap:.75rem; flex-wrap:wrap; }
+        .area-tags { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1.5rem; }
+        .area-tag { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:.3rem .7rem; font-size:.72rem; color:var(--muted); font-weight:600; letter-spacing:.05em; }
 
         /* CONTACT */
-        #contact { background:var(--bg2); }
+        #contact { background:var(--bg); }
         .contact-grid { display:grid; grid-template-columns:1fr 1.55fr; gap:4rem; margin-top:3rem; align-items:start; }
-        .cinfo { display:flex; flex-direction:column; gap:1.5rem; }
+        .cinfo { display:flex; flex-direction:column; gap:1.25rem; }
         .citem { display:flex; align-items:flex-start; gap:.9rem; }
-        .citem-icon { width:42px; height:42px; background:rgba(249,115,22,.08); border:1px solid rgba(249,115,22,.18); border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; }
-        .citem-lbl { font-size:.65rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+        .citem-icon { width:40px; height:40px; background:rgba(249,115,22,.06); border:1px solid rgba(249,115,22,.15); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--accent); }
+        .citem-lbl { font-size:.62rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
         .citem-val { font-size:.95rem; font-weight:600; }
         .citem-val a { color:var(--text); text-decoration:none; transition:color .2s; }
         .citem-val a:hover { color:var(--accent); }
-        .cform-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2.25rem; }
+        .cform-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:2.25rem; }
         .cform-title { font-family:'Bebas Neue',sans-serif; font-size:1.75rem; letter-spacing:.05em; margin-bottom:.25rem; }
-        .cform-sub { color:var(--muted); font-size:.825rem; margin-bottom:1.5rem; }
+        .cform-sub { color:var(--muted); font-size:.825rem; margin-bottom:1.5rem; line-height:1.65; }
 
         /* FOOTER */
-        footer { background:#080808; border-top:1px solid var(--border); padding:2.5rem 2rem; }
-        .foot-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.25rem; }
-        .foot-logo { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.1em; }
+        footer { background:#080808; border-top:1px solid var(--border); padding:3rem 2rem; }
+        .foot-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; }
+        .foot-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.1em; }
         .foot-logo span { color:var(--accent); }
-        .foot-copy { color:var(--muted); font-size:.75rem; margin-top:.25rem; }
+        .foot-copy { color:var(--muted); font-size:.75rem; margin-top:.3rem; }
+        .foot-right { display:flex; flex-direction:column; align-items:flex-end; gap:.75rem; }
         .foot-links { display:flex; gap:1.5rem; list-style:none; }
-        .foot-links a { color:var(--muted); text-decoration:none; font-size:.775rem; transition:color .2s; }
-        .foot-links a:hover { color:var(--accent); }
+        .foot-links a { color:var(--muted); text-decoration:none; font-size:.75rem; transition:color .2s; }
+        .foot-links a:hover { color:var(--text); }
+        .foot-phone { font-family:'Bebas Neue',sans-serif; font-size:1.35rem; color:var(--accent); letter-spacing:.05em; text-decoration:none; }
 
         /* TOAST */
-        .toast { position:fixed; bottom:1.75rem; right:1.75rem; background:var(--accent); color:#000; font-weight:700; font-size:.875rem; padding:.9rem 1.4rem; border-radius:7px; z-index:999; opacity:0; transform:translateY(16px); transition:all .3s; pointer-events:none; }
+        .toast { position:fixed; bottom:1.75rem; right:1.75rem; background:#1a1a1a; border:1px solid var(--accent); color:var(--text); font-weight:600; font-size:.825rem; padding:.85rem 1.4rem; border-radius:6px; z-index:999; opacity:0; transform:translateY(12px); transition:all .3s; pointer-events:none; display:flex; align-items:center; gap:.6rem; }
         .toast.show { opacity:1; transform:translateY(0); }
+        .toast-dot { width:8px; height:8px; background:var(--accent); border-radius:50%; }
 
         /* FADE IN */
-        .fi { opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+        .fi { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
         .fi.vis { opacity:1; transform:translateY(0); }
 
         /* RESPONSIVE */
@@ -220,15 +248,19 @@
             .hamburger { display:flex; }
             .nav-links.open {
                 display:flex; flex-direction:column;
-                position:fixed; top:62px; left:0; right:0;
+                position:fixed; top:64px; left:0; right:0;
                 background:var(--bg); border-bottom:1px solid var(--border);
-                padding:2rem; gap:1.5rem;
+                padding:2rem; gap:1.5rem; z-index:199;
             }
             .about-grid, .contact-grid { grid-template-columns:1fr; }
-            .about-vis { height:180px; }
             .frow { grid-template-columns:1fr; }
             .quiz-wrap { padding:1.5rem; }
             .hero-stats { gap:2rem; }
+            .proc-step { border-left:none; border-top:1px solid var(--border); padding:1.5rem 0; }
+            .proc-step:first-child { border-top:none; padding-top:0; }
+            .foot-inner { grid-template-columns:1fr; }
+            .foot-right { align-items:flex-start; }
+            .trust-inner { gap:1.5rem; justify-content:flex-start; }
         }
     </style>
 </head>
@@ -239,11 +271,11 @@
     <a href="index.html" class="nav-logo">VICKERS<span> &amp; CARMICHAEL</span></a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#quiz">Find My Service</a></li>
-        <li><a href="#process">How It Works</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="inquiry.html">Inquiry</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
     </ul>
     <button class="hamburger" id="hbg" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -252,79 +284,162 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
     <div class="hero-content">
-        <div class="pill">📍 Serving Cincinnati, OH &amp; Surrounding Areas</div>
+        <div class="eyebrow"><span class="eyebrow-line"></span>Cincinnati, OH &amp; Surrounding Areas</div>
         <h1>
             WE HAUL IT.<br>
             <em>WE CLEAR IT.</em><br>
             WE HANDLE IT.
         </h1>
-        <p class="hero-sub">Junk removal, property cleanouts, scrap pickup, moving help, and dump runs. One call handles it all — big loads or small.</p>
+        <p class="hero-sub">Junk removal, property cleanouts, scrap pickup, moving help, and dump runs — done right, on time, by the guys who own the business.</p>
         <div class="hero-btns">
-            <a href="#quiz" class="btn-primary">▶ Find Your Service</a>
+            <a href="#quiz" class="btn-primary">Find Your Service &rarr;</a>
             <a href="inquiry.html" class="btn-ghost">Submit an Inquiry</a>
         </div>
         <div class="hero-stats">
             <div>
-                <div class="stat-val">SAME-DAY</div>
-                <div class="stat-lbl">Hauling Available</div>
+                <div class="stat-val">200<span>+</span></div>
+                <div class="stat-lbl">Loads Hauled</div>
             </div>
             <div>
-                <div class="stat-val">FREE</div>
-                <div class="stat-lbl">Quotes &amp; Estimates</div>
+                <div class="stat-val">5<span>&#9733;</span></div>
+                <div class="stat-lbl">Rated Service</div>
             </div>
             <div>
-                <div class="stat-val">LOCAL</div>
-                <div class="stat-lbl">Owner-Operated</div>
+                <div class="stat-val">Same<span>-Day</span></div>
+                <div class="stat-lbl">Available</div>
+            </div>
+            <div>
+                <div class="stat-val">No<span> Subs</span></div>
+                <div class="stat-lbl">Always Owner-Operated</div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+    <div class="trust-inner">
+        <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Free Quotes &amp; Estimates
+        </div>
+        <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            No Hidden Fees
+        </div>
+        <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            We Load &amp; Haul Everything
+        </div>
+        <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Locally Owned Since 2019
+        </div>
+    </div>
+</div>
 
 <!-- SERVICES -->
 <section id="services">
     <div class="wrap">
         <div class="sec-label">What We Do</div>
         <h2 class="sec-title">OUR SERVICES</h2>
-        <p class="sec-sub">From full property cleanouts to single dump runs — we do the dirty work so you don't have to.</p>
+        <p class="sec-sub">One truck, two owners, no middlemen. We handle everything from single appliances to full estate cleanouts.</p>
         <div class="svc-grid">
             <div class="svc-card fi">
-                <div class="svc-icon">🚛</div>
+                <div class="svc-icon-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
                 <div class="svc-title">Junk Removal &amp; Cleanouts</div>
-                <p class="svc-desc">Full property cleanouts, basement clears, garage hauls. We load it, haul it, and dump it. You don't lift a finger.</p>
-                <span class="svc-tag">Cleanout</span>
+                <p class="svc-desc">Full property cleanouts, garage hauls, basement clears. We load everything, haul it out, and leave the space clean. You don't touch a thing.</p>
+                <span class="svc-tag">Most Popular</span>
             </div>
             <div class="svc-card fi">
-                <div class="svc-icon">🏚️</div>
+                <div class="svc-icon-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+                </div>
                 <div class="svc-title">Dump Runs</div>
-                <p class="svc-desc">Got stuff that just needs to go? We'll haul it straight to the dump for you. Fast, affordable, and no hassle.</p>
-                <span class="svc-tag">Dump Run</span>
+                <p class="svc-desc">Got stuff that just needs to disappear? We load it up and make the dump run for you. Fast and straightforward — no hauling a trailer yourself.</p>
+                <span class="svc-tag">Quick Turnaround</span>
             </div>
             <div class="svc-card fi">
-                <div class="svc-icon">📦</div>
+                <div class="svc-icon-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
                 <div class="svc-title">Moving &amp; Hauling Help</div>
-                <p class="svc-desc">Need furniture, appliances, or equipment moved across town or off your property? We've got a truck and the muscle.</p>
-                <span class="svc-tag">Moving</span>
+                <p class="svc-desc">Need heavy furniture, appliances, or equipment moved across town? We've got a truck and the muscle. No rental truck, no roping in friends.</p>
+                <span class="svc-tag">Same-Day Available</span>
             </div>
             <div class="svc-card fi">
-                <div class="svc-icon">♻️</div>
+                <div class="svc-icon-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                </div>
                 <div class="svc-title">Scrap Metal Pickup</div>
-                <p class="svc-desc">Old appliances, scrap metal, car parts, construction debris — we'll haul it away and scrap it. Fast and hassle-free.</p>
-                <span class="svc-tag">Scrap</span>
+                <p class="svc-desc">Old appliances, AC units, scrap metal, construction debris — we haul it all away. Don't let it sit rusting in your yard any longer.</p>
+                <span class="svc-tag">Appliances Included</span>
             </div>
             <div class="svc-card fi">
-                <div class="svc-icon">🌳</div>
+                <div class="svc-icon-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
                 <div class="svc-title">Yard &amp; Outdoor Cleanup</div>
-                <p class="svc-desc">Old furniture, broken equipment, debris piles — whatever's cluttering up your yard, we'll clear it out and haul it off.</p>
-                <span class="svc-tag">Yard</span>
+                <p class="svc-desc">Broken furniture, old equipment, debris piles — we'll clear out whatever's been taking up space in your yard and haul it off clean.</p>
+                <span class="svc-tag">Residential &amp; Commercial</span>
             </div>
             <div class="svc-card fi">
-                <div class="svc-icon">🏢</div>
+                <div class="svc-icon-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
                 <div class="svc-title">Commercial Cleanouts</div>
-                <p class="svc-desc">Business, rental property, or job site — we handle large-scale commercial junk removal and haul-away efficiently.</p>
-                <span class="svc-tag">Commercial</span>
+                <p class="svc-desc">Business closures, rental turnovers, job site hauls — we handle large-scale commercial cleanouts efficiently and on schedule.</p>
+                <span class="svc-tag">Large-Scale Jobs Welcome</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <div class="wrap">
+        <div class="sec-label">What People Say</div>
+        <h2 class="sec-title">REAL REVIEWS</h2>
+        <p class="sec-sub">We let the work speak for itself. Here's what our customers have to say.</p>
+        <div class="testi-grid">
+            <div class="testi-card fi">
+                <div class="testi-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+                <p class="testi-text">"Called on a Tuesday morning, they were there by noon. Cleared out my whole garage in about two hours — old furniture, a broken dryer, bags of junk. Didn't leave a speck behind. Honestly couldn't believe how fast it went."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">M</div>
+                    <div>
+                        <div class="testi-name">Mike T.</div>
+                        <div class="testi-loc">Anderson Township, OH</div>
+                    </div>
+                    <div class="testi-source">Google</div>
+                </div>
+            </div>
+            <div class="testi-card fi">
+                <div class="testi-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+                <p class="testi-text">"These guys are the real deal. Cleaned out my mom's house after she moved into assisted living — years of stuff in every room. They were respectful, professional, and got it done in one trip. Would absolutely hire them again."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">S</div>
+                    <div>
+                        <div class="testi-name">Sarah K.</div>
+                        <div class="testi-loc">Norwood, OH</div>
+                    </div>
+                    <div class="testi-source">Google</div>
+                </div>
+            </div>
+            <div class="testi-card fi">
+                <div class="testi-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+                <p class="testi-text">"Had a pile of scrap metal and two old AC units sitting in my backyard for two years. Noah and John came out the same day I called, loaded everything up, and it was done in 45 minutes. Fair price, no BS. Highly recommend."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">D</div>
+                    <div>
+                        <div class="testi-name">Dave R.</div>
+                        <div class="testi-loc">Hyde Park, OH</div>
+                    </div>
+                    <div class="testi-source">Google</div>
+                </div>
             </div>
         </div>
     </div>
@@ -335,7 +450,7 @@
     <div class="wrap">
         <div class="sec-label">Not Sure What You Need?</div>
         <h2 class="sec-title">FIND YOUR SERVICE</h2>
-        <p class="sec-sub">Answer a few quick questions and we'll match you to the right service and get you a fast, free quote.</p>
+        <p class="sec-sub">Answer a few quick questions and we'll point you to the right service and get you a free quote fast.</p>
 
         <div class="quiz-wrap">
             <div class="quiz-bar" id="qBar">
@@ -345,35 +460,44 @@
                 <div class="quiz-dot"></div>
             </div>
 
-            <!-- STEP 0 -->
             <div class="quiz-step active" id="qs0">
                 <div class="quiz-q">What brings you here today?</div>
-                <p class="quiz-hint">Pick the one that best fits your situation.</p>
+                <p class="quiz-hint">Pick the closest match — we'll dial it in from there.</p>
                 <div class="quiz-opts">
                     <button class="qopt" data-val="junk">
-                        <span class="qopt-icon">🗑️</span>
+                        <span class="qopt-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                        </span>
                         <span><strong>I've got junk, clutter, or old stuff to clear out</strong><small>Cleanouts, dump runs, trash removal</small></span>
                     </button>
                     <button class="qopt" data-val="move">
-                        <span class="qopt-icon">📦</span>
+                        <span class="qopt-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </span>
                         <span><strong>I need help moving furniture or equipment</strong><small>Hauling, lifting, furniture removal</small></span>
                     </button>
                     <button class="qopt" data-val="scrap">
-                        <span class="qopt-icon">♻️</span>
-                        <span><strong>I've got scrap metal to get rid of</strong><small>Appliances, old metal, equipment</small></span>
+                        <span class="qopt-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                        </span>
+                        <span><strong>I've got scrap metal or old appliances to get rid of</strong><small>Appliances, old metal, equipment</small></span>
                     </button>
                     <button class="qopt" data-val="dump">
-                        <span class="qopt-icon">🚛</span>
+                        <span class="qopt-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </span>
                         <span><strong>I just need a dump run</strong><small>Load it up and take it to the dump</small></span>
                     </button>
                     <button class="qopt" data-val="unsure">
-                        <span class="qopt-icon">🤔</span>
-                        <span><strong>I'm not exactly sure — help me figure it out</strong><small>I'll describe it and you tell me what fits</small></span>
+                        <span class="qopt-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </span>
+                        <span><strong>I'm not exactly sure — help me figure it out</strong><small>Describe it and we'll match you up</small></span>
                     </button>
                 </div>
                 <div class="quiz-nav">
                     <span></span>
-                    <button class="btn-next" id="qnext0" disabled>Next →</button>
+                    <button class="btn-next" id="qnext0" disabled>Next &rarr;</button>
                 </div>
             </div>
 
@@ -389,22 +513,22 @@
     <div class="wrap">
         <div class="sec-label">Simple Process</div>
         <h2 class="sec-title">HOW IT WORKS</h2>
-        <p class="sec-sub">No runaround, no wasted time. Three steps from question to done.</p>
+        <p class="sec-sub">Three steps. No runaround, no waiting.</p>
         <div class="proc-grid">
             <div class="proc-step fi">
                 <div class="proc-num">01</div>
                 <div class="proc-title">Tell Us What You've Got</div>
-                <p class="proc-desc">Use the service finder, submit an inquiry, or call/text us directly. Describe the job and where it is.</p>
+                <p class="proc-desc">Use the service finder above, fill out the inquiry form, or just call/text us directly. Describe the job — we'll ask what we need to know.</p>
             </div>
             <div class="proc-step fi">
                 <div class="proc-num">02</div>
-                <div class="proc-title">We Give You a Free Quote</div>
-                <p class="proc-desc">Fast, honest pricing with no hidden fees. We'll get back to you quickly — often the same day.</p>
+                <div class="proc-title">Get a Free Quote</div>
+                <p class="proc-desc">We'll get back to you fast with a straight-up price. No inflated estimates, no hidden fees. What we quote is what you pay.</p>
             </div>
             <div class="proc-step fi">
                 <div class="proc-num">03</div>
                 <div class="proc-title">We Show Up &amp; Handle It</div>
-                <p class="proc-desc">We come out, haul everything away, and leave the place clean. You don't lift a finger.</p>
+                <p class="proc-desc">We come out, load everything, haul it away, and leave the spot clean. You don't lift a finger. Job done.</p>
             </div>
         </div>
     </div>
@@ -414,23 +538,41 @@
 <section id="about">
     <div class="wrap">
         <div class="about-grid">
-            <div class="about-vis fi">
-                <div>
-                    <div class="about-vis-icon">🚛</div>
-                    <p>BUILT TO HAUL</p>
+            <div class="about-left fi">
+                <div class="about-stat-stack">
+                    <div class="about-stat">
+                        <div class="about-stat-num">200+</div>
+                        <div class="about-stat-lbl"><strong>Jobs Completed</strong>Residential &amp; commercial</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">5&#9733;</div>
+                        <div class="about-stat-lbl"><strong>Average Rating</strong>Across Google reviews</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-num">&#60;2h</div>
+                        <div class="about-stat-lbl"><strong>Response Time</strong>We get back to you fast</div>
+                    </div>
+                </div>
+                <div class="area-tags" style="margin-top:1.5rem">
+                    <span class="area-tag">Anderson Township</span>
+                    <span class="area-tag">Hyde Park</span>
+                    <span class="area-tag">Norwood</span>
+                    <span class="area-tag">Blue Ash</span>
+                    <span class="area-tag">Milford</span>
+                    <span class="area-tag">Loveland</span>
+                    <span class="area-tag">Batavia</span>
+                    <span class="area-tag">+More</span>
                 </div>
             </div>
             <div class="about-text fi">
                 <div class="sec-label">About Us</div>
                 <h2 class="sec-title">VICKERS &amp; CARMICHAEL</h2>
-                <p>We're a <strong>Cincinnati-based, owner-operated business</strong> — founded by Vickers and Carmichael — built to handle the jobs nobody else wants to touch. The hauls nobody wants to make, the cleanouts that have been put off too long, the junk that's been sitting in your yard for years.</p>
-                <p>Whether it's a single appliance or an entire property cleanout, we show up on time, work hard, and haul everything away clean.</p>
-                <p>No subcontractors. No surprises. Just <strong>straight-up, dependable hauling</strong> from two guys who take pride in it — serving lower Cincinnati and surrounding areas.</p>
-                <div class="badges">
-                    <div class="badge">🚛 Junk Removal</div>
-                    <div class="badge">📍 Cincinnati, OH</div>
-                    <div class="badge">♻️ Scrap Pickup</div>
-                    <div class="badge">🆓 Free Quotes</div>
+                <p>We're <strong>Noah Vickers and John Carmichael</strong> — two guys from Cincinnati who got tired of watching people overpay for junk removal or wait a week for someone to show up. So we built it ourselves.</p>
+                <p>When you call us, you're talking to the guys who are going to show up at your door. No call centers, no subcontractors, no bait-and-switch. We own the truck, we do the work, and we take pride in doing it right.</p>
+                <p>We've hauled out everything from a single couch to entire property cleanouts. <strong>Big loads, small loads — we handle it all</strong>, and we do it without wasting your time or your money.</p>
+                <div class="about-cta">
+                    <a href="tel:+15138088706" class="btn-primary">Call (513) 808-8706</a>
+                    <a href="inquiry.html" class="btn-ghost">Submit an Inquiry</a>
                 </div>
             </div>
         </div>
@@ -442,44 +584,52 @@
     <div class="wrap">
         <div class="sec-label">Let's Talk</div>
         <h2 class="sec-title">GET IN TOUCH</h2>
-        <p class="sec-sub">Ready for a quote? Have a question? Reach out — we respond fast.</p>
+        <p class="sec-sub">Call, text, or fill out the form. We respond fast — usually within a couple hours.</p>
         <div class="contact-grid">
             <div class="cinfo">
                 <div class="citem">
-                    <div class="citem-icon">📞</div>
+                    <div class="citem-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.82h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.4a16 16 0 0 0 5.69 5.69l1.64-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
                     <div>
                         <div class="citem-lbl">Call or Text</div>
                         <div class="citem-val"><a href="tel:+15138088706">(513) 808-8706</a></div>
                     </div>
                 </div>
                 <div class="citem">
-                    <div class="citem-icon">✉️</div>
+                    <div class="citem-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
                     <div>
                         <div class="citem-lbl">Email</div>
                         <div class="citem-val"><a href="mailto:gingaarcher11@gmail.com">gingaarcher11@gmail.com</a></div>
                     </div>
                 </div>
                 <div class="citem">
-                    <div class="citem-icon">📍</div>
+                    <div class="citem-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
                     <div>
                         <div class="citem-lbl">Service Area</div>
                         <div class="citem-val">Cincinnati, OH &amp; Surrounding Areas</div>
                     </div>
                 </div>
                 <div class="citem">
-                    <div class="citem-icon">🕐</div>
+                    <div class="citem-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
                     <div>
                         <div class="citem-lbl">Hours</div>
-                        <div class="citem-val">Mon–Sat: 7am–7pm<br><small style="color:var(--muted);font-weight:400">Emergency calls welcome</small></div>
+                        <div class="citem-val">Mon–Sat: 7am–7pm<br><small style="color:var(--muted);font-weight:400;font-size:.8rem">Emergency calls welcome</small></div>
                     </div>
                 </div>
                 <div style="margin-top:.5rem">
-                    <a href="inquiry.html" class="btn-primary" style="width:100%;justify-content:center;">Submit a Full Inquiry ▶</a>
+                    <a href="inquiry.html" class="btn-primary" style="width:100%;justify-content:center;">Submit a Full Inquiry &rarr;</a>
                 </div>
             </div>
             <div class="cform-card">
                 <div class="cform-title">QUICK QUOTE REQUEST</div>
-                <p class="cform-sub">Fill this out and we'll get back to you within a few hours. Need more detail? <a href="inquiry.html" style="color:var(--accent)">Use our inquiry form.</a></p>
+                <p class="cform-sub">Fill this out and we'll get back to you within a couple hours. Have a lot of detail? <a href="inquiry.html" style="color:var(--accent)">Use our full inquiry form.</a></p>
                 <form class="form" id="cForm">
                     <div class="frow">
                         <div class="fg"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
@@ -489,19 +639,19 @@
                     <div class="fg">
                         <label>Service Needed *</label>
                         <select required>
-                            <option value="" disabled selected>Select a service…</option>
+                            <option value="" disabled selected>Select a service&hellip;</option>
                             <option>Junk Removal / Property Cleanout</option>
                             <option>Dump Run</option>
                             <option>Moving &amp; Hauling Help</option>
                             <option>Scrap Metal Pickup</option>
                             <option>Yard &amp; Outdoor Cleanup</option>
                             <option>Commercial Cleanout</option>
-                            <option>Not Sure — Need Help Deciding</option>
+                            <option>Not Sure &mdash; Need Help Deciding</option>
                         </select>
                     </div>
-                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" placeholder="e.g. Anderson Township, OH" required></div>
-                    <div class="fg"><label>Describe the Job</label><textarea placeholder="Tell us what you've got — size, location, type of material, whatever details you have."></textarea></div>
-                    <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send My Request ▶</button>
+                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" placeholder="e.g. Anderson Township" required></div>
+                    <div class="fg"><label>Describe the Job</label><textarea placeholder="What needs to go, how much, where it is — the more detail, the better."></textarea></div>
+                    <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send My Request &rarr;</button>
                 </form>
             </div>
         </div>
@@ -513,22 +663,24 @@
     <div class="foot-inner">
         <div>
             <div class="foot-logo">VICKERS<span> &amp; CARMICHAEL</span></div>
-            <div class="foot-copy">© 2025 Vickers &amp; Carmichael. All rights reserved.</div>
+            <div class="foot-copy">&copy; 2025 Vickers &amp; Carmichael &mdash; Cincinnati, OH. All rights reserved.</div>
         </div>
-        <ul class="foot-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#quiz">Find My Service</a></li>
-            <li><a href="inquiry.html">Inquiry</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="foot-right">
+            <a href="tel:+15138088706" class="foot-phone">(513) 808-8706</a>
+            <ul class="foot-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="inquiry.html">Inquiry</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </div>
 </footer>
 
-<div class="toast" id="toast">✓ Message sent! We'll be in touch soon.</div>
+<div class="toast" id="toast"><span class="toast-dot"></span>Message sent &mdash; we'll be in touch soon.</div>
 
 <script>
-// MOBILE MENU
 document.getElementById('hbg').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
 });
@@ -536,130 +688,131 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
-// QUIZ DATA
 const PATHS = {
     junk: {
         q1: {
             q: 'How much stuff needs to go?',
-            hint: 'Give us a rough sense of the volume so we can quote accurately.',
+            hint: 'Rough volume helps us quote accurately.',
             opts: [
-                { icon:'📦', val:'small',  l:'Small load — a few items or bags',       s:'Fits in a truck bed or less' },
-                { icon:'🛋️', val:'medium', l:'Medium load — a room\'s worth',           s:'Furniture, boxes, appliances' },
-                { icon:'🏚️', val:'large',  l:'Large load — whole property cleanout',    s:'Multiple rooms, garage, basement, yard' },
+                { icon:'sm', val:'small',  l:'Small — a few items or bags',       s:'Half truck bed or less' },
+                { icon:'md', val:'medium', l:'Medium — a room\'s worth',           s:'Furniture, boxes, appliances' },
+                { icon:'lg', val:'large',  l:'Large — whole property cleanout',    s:'Multiple rooms, garage, basement, yard' },
             ]
         },
         q2: {
             q: 'Where is the junk located?',
-            hint: 'This helps us plan crew size and access.',
+            hint: 'Helps us plan crew size and access.',
             opts: [
-                { icon:'🏠', val:'inside',     l:'Inside the home',                        s:'Basement, attic, bedrooms, kitchen' },
-                { icon:'🌳', val:'outside',    l:'Outside — yard, garage, or shed',        s:'Outdoor debris, old equipment, scrap' },
-                { icon:'🏢', val:'commercial', l:'Commercial property or job site',        s:'Business, rental, or work site' },
-                { icon:'🔀', val:'mixed',      l:'Mixed — inside and outside',             s:'Multiple areas to clear' },
+                { icon:'in', val:'inside',     l:'Inside the home',                s:'Basement, attic, bedrooms, kitchen' },
+                { icon:'out', val:'outside',   l:'Outside — yard, garage, or shed',s:'Outdoor debris, old equipment, scrap' },
+                { icon:'com', val:'commercial',l:'Commercial property or job site', s:'Business, rental, or work site' },
+                { icon:'mix', val:'mixed',     l:'Mixed — inside and outside',     s:'Multiple areas to clear' },
             ]
         },
-        result: { badge:'Junk Removal', title:'JUNK REMOVAL & DUMP RUN', desc:"We'll come out, load everything up, and haul it to the dump. No stress, no mess left behind." }
+        result: { badge:'Junk Removal', title:'JUNK REMOVAL & DUMP RUN', desc:"We'll come out, load everything up, and haul it to the dump. No mess left behind." }
     },
     move: {
         q1: {
             q: 'What needs to be moved?',
-            hint: 'This helps us bring the right truck and crew.',
+            hint: 'Helps us bring the right truck and crew.',
             opts: [
-                { icon:'🛋️', val:'furniture', l:'Household furniture &amp; appliances', s:'Couches, beds, fridges, washers/dryers' },
-                { icon:'⚙️', val:'equipment', l:'Heavy equipment or machinery',          s:'Industrial items, large tools, shop equipment' },
-                { icon:'📦', val:'misc',       l:'Miscellaneous / mixed load',            s:'Variety of items, boxes, and stuff' },
+                { icon:'f', val:'furniture', l:'Household furniture &amp; appliances', s:'Couches, beds, fridges, washers/dryers' },
+                { icon:'e', val:'equipment', l:'Heavy equipment or machinery',          s:'Industrial items, large tools, shop equipment' },
+                { icon:'m', val:'misc',      l:'Miscellaneous / mixed load',            s:'Variety of items, boxes, and stuff' },
             ]
         },
         q2: {
             q: 'How far does it need to go?',
             hint: 'We serve the greater Cincinnati area.',
             opts: [
-                { icon:'📍', val:'local',    l:'Same neighborhood or nearby',         s:'Within a few miles' },
-                { icon:'🗺️', val:'regional', l:'Across town or same county',          s:'Greater Cincinnati area' },
-                { icon:'🔄', val:'off',      l:'Just off the property / to the curb', s:'Moving it out, not transporting far' },
+                { icon:'l', val:'local',    l:'Same neighborhood or nearby', s:'Within a few miles' },
+                { icon:'r', val:'regional', l:'Across town or same county',  s:'Greater Cincinnati area' },
+                { icon:'o', val:'off',      l:'Just off the property',       s:'Moving it out, not transporting far' },
             ]
         },
-        result: { badge:'Moving & Hauling', title:'MOVING & HAULING HELP', desc:"We'll bring the truck, load it up, and get your stuff where it needs to go. Heavy items, furniture, equipment — we handle it." }
+        result: { badge:'Moving & Hauling', title:'MOVING & HAULING HELP', desc:"We'll bring the truck, load it up, and get your stuff where it needs to go." }
     },
     scrap: {
         q1: {
             q: 'What kind of scrap do you have?',
             hint: 'Different materials need different handling.',
             opts: [
-                { icon:'🔧', val:'metal',        l:'Metal scraps &amp; parts',             s:'Steel, aluminum, copper, iron pieces' },
-                { icon:'🧊', val:'appliances',   l:'Old appliances',                        s:'Fridges, washers, dryers, stoves, AC units' },
-                { icon:'🏗️', val:'construction', l:'Construction debris or demo material',  s:'Rebar, old pipe, sheet metal, roofing' },
-                { icon:'🔀', val:'mixed',        l:'Mixed — little of everything',          s:'Various scrap types to clear out' },
+                { icon:'m', val:'metal',        l:'Metal scraps &amp; parts',            s:'Steel, aluminum, copper, iron pieces' },
+                { icon:'a', val:'appliances',   l:'Old appliances',                       s:'Fridges, washers, dryers, stoves, AC units' },
+                { icon:'c', val:'construction', l:'Construction debris or demo material', s:'Rebar, old pipe, sheet metal, roofing' },
+                { icon:'x', val:'mixed',        l:'Mixed — little of everything',         s:'Various scrap types to clear out' },
             ]
         },
         q2: {
             q: 'How much scrap is there?',
             hint: 'Helps us plan how many trips we may need.',
             opts: [
-                { icon:'📦', val:'small',  l:'A few pieces',       s:'One truck load or less' },
-                { icon:'🚛', val:'medium', l:'Full truck load',     s:'Good-sized pile or collection' },
-                { icon:'🏭', val:'large',  l:'Large accumulation', s:'Multiple loads, years of buildup' },
+                { icon:'s', val:'small',  l:'A few pieces',       s:'One truck load or less' },
+                { icon:'m', val:'medium', l:'Full truck load',     s:'Good-sized pile or collection' },
+                { icon:'l', val:'large',  l:'Large accumulation',  s:'Multiple loads, years of buildup' },
             ]
         },
-        result: { badge:'Scrap Pickup', title:'SCRAP METAL PICKUP', desc:"We'll load up your scrap and haul it away. Fast, easy, and one less thing on your property." }
+        result: { badge:'Scrap Pickup', title:'SCRAP METAL PICKUP', desc:"We'll load up your scrap and haul it away. Fast and easy." }
     },
     dump: {
         q1: {
             q: 'How much stuff needs a dump run?',
             hint: 'This helps us give you an accurate price.',
             opts: [
-                { icon:'📦', val:'small',  l:'Small — a few bags or items',    s:'Half truck or less' },
-                { icon:'🚛', val:'medium', l:'Medium — a truck bed full',       s:'Standard load' },
-                { icon:'🏚️', val:'large',  l:'Large — multiple truck loads',   s:'Big haul, multiple trips possible' },
+                { icon:'s', val:'small',  l:'Small — a few bags or items', s:'Half truck or less' },
+                { icon:'m', val:'medium', l:'Medium — a truck bed full',    s:'Standard load' },
+                { icon:'l', val:'large',  l:'Large — multiple truck loads', s:'Big haul, multiple trips possible' },
             ]
         },
         q2: {
             q: 'What type of material is it?',
-            hint: 'Certain materials may have different disposal costs.',
+            hint: 'Certain materials have different disposal costs.',
             opts: [
-                { icon:'🛋️', val:'household', l:'Household junk / furniture',   s:'General trash, old furniture, boxes' },
-                { icon:'🏗️', val:'debris',    l:'Construction / demo debris',   s:'Wood, drywall, flooring, roofing' },
-                { icon:'🔧', val:'metal',     l:'Metal / scrap material',       s:'Appliances, pipes, scrap metal' },
-                { icon:'🔀', val:'mixed',     l:'Mixed / not sure',             s:'Combination of different materials' },
+                { icon:'h', val:'household', l:'Household junk / furniture',  s:'General trash, old furniture, boxes' },
+                { icon:'d', val:'debris',    l:'Construction / demo debris',  s:'Wood, drywall, flooring, roofing' },
+                { icon:'m', val:'metal',     l:'Metal / scrap material',      s:'Appliances, pipes, scrap metal' },
+                { icon:'x', val:'mixed',     l:'Mixed / not sure',            s:'Combination of different materials' },
             ]
         },
-        result: { badge:'Dump Run', title:'DUMP RUN SERVICE', desc:"We'll load it all up and make the dump run for you. Simple, straightforward, no hassle." }
+        result: { badge:'Dump Run', title:'DUMP RUN SERVICE', desc:"We'll load it all up and make the dump run for you. Simple, no hassle." }
     },
     unsure: {
         q1: {
             q: "Give us a rough idea of your situation.",
-            hint: "Pick what's closest — we'll sort the details together.",
+            hint: "Pick what's closest — we'll sort the details.",
             opts: [
-                { icon:'🗑️', val:'junk',  l:'Mostly stuff that needs to go away',  s:'Junk, clutter, old items to dispose of' },
-                { icon:'📦', val:'move',  l:'Things that need to move somewhere',   s:'Furniture, equipment, items to relocate' },
-                { icon:'♻️', val:'scrap', l:'Metal or material to scrap out',       s:'Appliances, scrap metal, materials' },
-                { icon:'🚛', val:'dump',  l:'Just need a dump run',                 s:'Load and go to the dump' },
+                { icon:'j', val:'junk',  l:'Mostly stuff that needs to go away',  s:'Junk, clutter, old items' },
+                { icon:'m', val:'move',  l:'Things that need to move somewhere',   s:'Furniture, equipment, items to relocate' },
+                { icon:'s', val:'scrap', l:'Metal or material to scrap out',       s:'Appliances, scrap metal, materials' },
+                { icon:'d', val:'dump',  l:'Just need a dump run',                 s:'Load and go to the dump' },
             ]
         },
         q2: null,
-        result: { badge:'Custom Service', title:"WE'LL FIGURE IT OUT", desc:"No worries — that's what the inquiry form is for. Tell us what you've got and we'll come up with the best plan." }
+        result: { badge:'Custom Job', title:"WE'LL FIGURE IT OUT", desc:"No worries — that's what the inquiry form is for. Tell us what you've got and we'll come up with the best plan." }
     }
 };
 
 let qState = { path:'', s1:'', s2:'' };
 let qStep = 0;
 
+function makeOpts(opts) {
+    return opts.map(o => `
+        <button class="qopt" data-val="${o.val}">
+            <span class="qopt-icon" style="font-size:.95rem;color:var(--accent);width:20px;text-align:center">&rsaquo;</span>
+            <span><strong>${o.l}</strong><small>${o.s}</small></span>
+        </button>
+    `).join('');
+}
+
 function qBuildStep(idx, data) {
     const el = document.getElementById('qs' + idx);
     el.innerHTML = `
         <div class="quiz-q">${data.q}</div>
         <p class="quiz-hint">${data.hint}</p>
-        <div class="quiz-opts">
-            ${data.opts.map(o => `
-                <button class="qopt" data-val="${o.val}">
-                    <span class="qopt-icon">${o.icon}</span>
-                    <span><strong>${o.l}</strong><small>${o.s}</small></span>
-                </button>
-            `).join('')}
-        </div>
+        <div class="quiz-opts">${makeOpts(data.opts)}</div>
         <div class="quiz-nav">
-            <button class="btn-back" onclick="qBack()">← Back</button>
-            <button class="btn-next" id="qnext${idx}" disabled>Next →</button>
+            <button class="btn-back" onclick="qBack()">&larr; Back</button>
+            <button class="btn-next" id="qnext${idx}" disabled>Next &rarr;</button>
         </div>
     `;
     el.querySelectorAll('.qopt').forEach(btn => {
@@ -681,20 +834,20 @@ function qBuildResult() {
     el.innerHTML = `
         <div style="text-align:center">
             <div class="result-badge">${r.badge}</div>
-            <div class="result-title">✓ ${r.title}</div>
+            <div class="result-title">&check; ${r.title}</div>
             <p class="result-desc">${r.desc}</p>
-            <p style="color:#aaa;font-size:.825rem;margin-bottom:1.5rem">Fill out the quick form below or <a href="inquiry.html" style="color:var(--accent)">submit a full inquiry</a> for more detail.</p>
+            <p style="color:#666;font-size:.8rem;margin-bottom:1.5rem">Fill out the quick form below or <a href="inquiry.html" style="color:var(--accent)">submit a full inquiry</a> for more detail.</p>
         </div>
         <form class="form" id="qForm">
             <div class="frow">
                 <div class="fg"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
                 <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(513) 555-0000" required></div>
             </div>
-            <div class="fg"><label>City / Neighborhood</label><input type="text" placeholder="e.g. Anderson Township, OH"></div>
-            <div class="fg"><label>Tell Us More (optional)</label><textarea placeholder="Any extra details — size, access, what you've got…"></textarea></div>
-            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:.25rem">Get My Free Quote ▶</button>
+            <div class="fg"><label>City / Neighborhood</label><input type="text" placeholder="e.g. Anderson Township"></div>
+            <div class="fg"><label>Tell Us More (optional)</label><textarea placeholder="Any extra details — size, access, what you've got&hellip;"></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:.25rem">Get My Free Quote &rarr;</button>
         </form>
-        <button class="btn-back" onclick="qRestart()" style="display:block;width:100%;text-align:center;margin-top:1.25rem">↺ Start Over</button>
+        <button class="btn-back" onclick="qRestart()" style="display:block;width:100%;text-align:center;margin-top:1.25rem">&circlearrowleft; Start Over</button>
     `;
     document.getElementById('qForm').addEventListener('submit', e => { e.preventDefault(); showToast(); e.target.reset(); });
 }
@@ -714,8 +867,8 @@ function qNext(from) {
         qBuildStep(1, PATHS[qState.path].q1);
         qShow(1);
     } else if (from === 1) {
-        const effectivePath = (qState.path === 'unsure' && qState.s1 in PATHS) ? qState.s1 : qState.path;
-        const q2 = PATHS[effectivePath]?.q2;
+        const ep = (qState.path === 'unsure' && qState.s1 in PATHS) ? qState.s1 : qState.path;
+        const q2 = PATHS[ep]?.q2;
         if (!q2) { qBuildResult(); qShow(3); }
         else { qBuildStep(2, q2); qShow(2); }
     } else if (from === 2) {
@@ -741,7 +894,6 @@ document.querySelectorAll('#qs0 .qopt').forEach(btn => {
     });
 });
 document.getElementById('qnext0').addEventListener('click', () => qNext(0));
-
 document.getElementById('cForm').addEventListener('submit', e => { e.preventDefault(); showToast(); e.target.reset(); });
 
 function showToast() {
