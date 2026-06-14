@@ -268,7 +268,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-    <a href="index.html" class="nav-logo">VICKERS<span> &amp; CARMICHAEL</span></a>
+    <a href="index.html" class="nav-logo">JUNKER<span>D</span></a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
         <li><a href="#quiz">Find My Service</a></li>
@@ -284,15 +284,14 @@
 <!-- HERO -->
 <section class="hero" id="home">
     <div class="hero-content">
-        <div class="eyebrow"><span class="eyebrow-line"></span>Cincinnati, OH &amp; Surrounding Areas</div>
         <h1>
             WE HAUL IT.<br>
             <em>WE CLEAR IT.</em><br>
             WE HANDLE IT.
         </h1>
-        <p class="hero-sub">Junk removal, property cleanouts, scrap pickup, moving help, and dump runs — done right, on time, by the guys who own the business.</p>
+        <p class="hero-sub">Junk removal, hauling, scrap pickup, and dump runs. Cincinnati, OH &amp; surrounding areas.</p>
         <div class="hero-btns">
-            <a href="#quiz" class="btn-primary">Find Your Service &rarr;</a>
+            <a href="#contact" class="btn-primary">Get a Free Quote &rarr;</a>
             <a href="inquiry.html" class="btn-ghost">Submit an Inquiry</a>
         </div>
         <div class="hero-stats">
@@ -579,13 +578,13 @@
                 <p class="cform-sub">Fill this out and we'll get back to you within a couple hours. Have a lot of detail? <a href="inquiry.html" style="color:var(--accent)">Use our full inquiry form.</a></p>
                 <form class="form" id="cForm">
                     <div class="frow">
-                        <div class="fg"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
-                        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(513) 555-0000" required></div>
+                        <div class="fg"><label>Your Name *</label><input type="text" name="name" placeholder="John Smith" required></div>
+                        <div class="fg"><label>Phone Number *</label><input type="tel" name="phone" placeholder="(513) 555-0000" required></div>
                     </div>
-                    <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com"></div>
+                    <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com"></div>
                     <div class="fg">
                         <label>Service Needed *</label>
-                        <select required>
+                        <select name="service" required>
                             <option value="" disabled selected>Select a service&hellip;</option>
                             <option>Junk Removal / Property Cleanout</option>
                             <option>Dump Run</option>
@@ -596,8 +595,8 @@
                             <option>Not Sure &mdash; Need Help Deciding</option>
                         </select>
                     </div>
-                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" placeholder="e.g. Anderson Township" required></div>
-                    <div class="fg"><label>Describe the Job</label><textarea placeholder="What needs to go, how much, where it is — the more detail, the better."></textarea></div>
+                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" name="city" placeholder="e.g. Anderson Township" required></div>
+                    <div class="fg"><label>Describe the Job</label><textarea name="description" placeholder="What needs to go, how much, where it is — the more detail, the better."></textarea></div>
                     <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send My Request &rarr;</button>
                 </form>
             </div>
@@ -609,8 +608,8 @@
 <footer>
     <div class="foot-inner">
         <div>
-            <div class="foot-logo">VICKERS<span> &amp; CARMICHAEL</span></div>
-            <div class="foot-copy">&copy; 2025 Vickers &amp; Carmichael &mdash; Cincinnati, OH. All rights reserved.</div>
+            <div class="foot-logo">JUNKER<span>D</span></div>
+            <div class="foot-copy">&copy; 2025 Junkerd &mdash; Cincinnati, OH. All rights reserved.</div>
         </div>
         <div class="foot-right">
             <a href="tel:+15138088706" class="foot-phone">(513) 808-8706</a>
@@ -840,7 +839,20 @@ document.querySelectorAll('#qs0 .qopt').forEach(btn => {
     });
 });
 document.getElementById('qnext0').addEventListener('click', () => qNext(0));
-document.getElementById('cForm').addEventListener('submit', e => { e.preventDefault(); showToast(); e.target.reset(); });
+document.getElementById('cForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+        const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+            method: 'POST', body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) { showToast(); this.reset(); }
+        else { alert('Something went wrong. Please call us at (513) 808-8706.'); }
+    } catch { alert('Something went wrong. Please call us at (513) 808-8706.'); }
+    btn.disabled = false; btn.textContent = 'Send My Request →';
+});
 
 function showToast() {
     const t = document.getElementById('toast');

@@ -172,7 +172,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-    <a href="index.html" class="nav-logo">VICKERS<span> &amp; CARMICHAEL</span></a>
+    <a href="index.html" class="nav-logo">JUNKER<span>D</span></a>
     <ul class="nav-links" id="navLinks">
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#quiz">Find My Service</a></li>
@@ -408,8 +408,8 @@
 <footer>
     <div class="foot-inner">
         <div>
-            <div class="foot-logo">VICKERS<span> &amp; CARMICHAEL</span></div>
-            <div class="foot-copy">© 2025 Vickers &amp; Carmichael. All rights reserved.</div>
+            <div class="foot-logo">JUNKER<span>D</span></div>
+            <div class="foot-copy">© 2025 Junkerd &mdash; Cincinnati, OH. All rights reserved.</div>
         </div>
         <ul class="foot-links">
             <li><a href="index.html#services">Services</a></li>
@@ -425,11 +425,21 @@ document.getElementById('hbg').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
 });
 
-document.getElementById('inqForm').addEventListener('submit', function(e) {
+document.getElementById('inqForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('successScreen').style.display = 'block';
-    window.scrollTo({ top: document.querySelector('.inq-form-card').offsetTop - 80, behavior:'smooth' });
+    const btn = this.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+        const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+            method: 'POST', body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+            this.style.display = 'none';
+            document.getElementById('successScreen').style.display = 'block';
+            window.scrollTo({ top: document.querySelector('.inq-form-card').offsetTop - 80, behavior:'smooth' });
+        } else { alert('Something went wrong. Please call us at (513) 808-8706.'); btn.disabled = false; btn.textContent = 'Submit My Inquiry ▶'; }
+    } catch { alert('Something went wrong. Please call us at (513) 808-8706.'); btn.disabled = false; btn.textContent = 'Submit My Inquiry ▶'; }
 });
 </script>
 </body>
