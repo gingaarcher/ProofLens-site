@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vickers & Carmichael — Junk Removal & Hauling | Cincinnati, OH</title>
-    <meta name="description" content="Junk removal, hauling, scrap pickup & dump runs in Cincinnati, OH. Full property cleanouts, moving help, scrap metal pickup. Call Vickers & Carmichael.">
+    <title>Junkerd — Junk Removal & Hauling | Cincinnati, OH</title>
+    <meta name="description" content="Junk removal, hauling, scrap pickup & dump runs in Cincinnati, OH. Full property cleanouts, moving help, scrap metal pickup. Call Junkerd today.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -236,7 +236,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-    <a href="index.html" class="nav-logo">VICKERS<span> &amp; CARMICHAEL</span></a>
+    <a href="index.html" class="nav-logo">JUNKER<span>D</span></a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
         <li><a href="#quiz">Find My Service</a></li>
@@ -255,15 +255,14 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
-        <div class="pill">📍 Serving Cincinnati, OH &amp; Surrounding Areas</div>
         <h1>
             WE HAUL IT.<br>
             <em>WE CLEAR IT.</em><br>
             WE HANDLE IT.
         </h1>
-        <p class="hero-sub">Junk removal, property cleanouts, scrap pickup, moving help, and dump runs. One call handles it all — big loads or small.</p>
+        <p class="hero-sub">Junk removal, hauling, scrap pickup, and dump runs. Cincinnati, OH &amp; surrounding areas.</p>
         <div class="hero-btns">
-            <a href="#quiz" class="btn-primary">▶ Find Your Service</a>
+            <a href="#contact" class="btn-primary">Get a Free Quote →</a>
             <a href="inquiry.html" class="btn-ghost">Submit an Inquiry</a>
         </div>
         <div class="hero-stats">
@@ -449,14 +448,14 @@
                     <div class="citem-icon">📞</div>
                     <div>
                         <div class="citem-lbl">Call or Text</div>
-                        <div class="citem-val"><a href="tel:+15555555555">(555) 555-5555</a></div>
+                        <div class="citem-val"><a href="tel:+15138088706">(513) 808-8706</a></div>
                     </div>
                 </div>
                 <div class="citem">
                     <div class="citem-icon">✉️</div>
                     <div>
                         <div class="citem-lbl">Email</div>
-                        <div class="citem-val"><a href="mailto:info@vickersandcarmichael.com">info@vickersandcarmichael.com</a></div>
+                        <div class="citem-val"><a href="mailto:gingaarcher11@gmail.com">gingaarcher11@gmail.com</a></div>
                     </div>
                 </div>
                 <div class="citem">
@@ -482,13 +481,13 @@
                 <p class="cform-sub">Fill this out and we'll get back to you within a few hours. Need more detail? <a href="inquiry.html" style="color:var(--accent)">Use our inquiry form.</a></p>
                 <form class="form" id="cForm">
                     <div class="frow">
-                        <div class="fg"><label>Your Name *</label><input type="text" placeholder="John Smith" required></div>
-                        <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(513) 555-0000" required></div>
+                        <div class="fg"><label>Your Name *</label><input type="text" name="name" placeholder="John Smith" required></div>
+                        <div class="fg"><label>Phone Number *</label><input type="tel" name="phone" placeholder="(513) 555-0000" required></div>
                     </div>
-                    <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com"></div>
+                    <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com"></div>
                     <div class="fg">
                         <label>Service Needed *</label>
-                        <select required>
+                        <select name="service" required>
                             <option value="" disabled selected>Select a service…</option>
                             <option>Junk Removal / Property Cleanout</option>
                             <option>Dump Run</option>
@@ -499,9 +498,9 @@
                             <option>Not Sure — Need Help Deciding</option>
                         </select>
                     </div>
-                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" placeholder="e.g. Anderson Township, OH" required></div>
-                    <div class="fg"><label>Describe the Job</label><textarea placeholder="Tell us what you've got — size, location, type of material, whatever details you have."></textarea></div>
-                    <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send My Request ▶</button>
+                    <div class="fg"><label>Your City / Neighborhood *</label><input type="text" name="city" placeholder="e.g. Anderson Township, OH" required></div>
+                    <div class="fg"><label>Describe the Job</label><textarea name="description" placeholder="Tell us what you've got — size, location, type of material, whatever details you have."></textarea></div>
+                    <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send My Request →</button>
                 </form>
             </div>
         </div>
@@ -512,8 +511,8 @@
 <footer>
     <div class="foot-inner">
         <div>
-            <div class="foot-logo">VICKERS<span> &amp; CARMICHAEL</span></div>
-            <div class="foot-copy">© 2025 Vickers &amp; Carmichael. All rights reserved.</div>
+            <div class="foot-logo">JUNKER<span>D</span></div>
+            <div class="foot-copy">© 2025 Junkerd — Cincinnati, OH. All rights reserved.</div>
         </div>
         <ul class="foot-links">
             <li><a href="#services">Services</a></li>
@@ -742,7 +741,20 @@ document.querySelectorAll('#qs0 .qopt').forEach(btn => {
 });
 document.getElementById('qnext0').addEventListener('click', () => qNext(0));
 
-document.getElementById('cForm').addEventListener('submit', e => { e.preventDefault(); showToast(); e.target.reset(); });
+document.getElementById('cForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+        const res = await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+            method: 'POST', body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) { showToast(); this.reset(); }
+        else { alert('Something went wrong. Please call us at (513) 808-8706.'); }
+    } catch { alert('Something went wrong. Please call us at (513) 808-8706.'); }
+    btn.disabled = false; btn.textContent = 'Send My Request →';
+});
 
 function showToast() {
     const t = document.getElementById('toast');
