@@ -1,0 +1,37 @@
+PROJECT BRIEFING FOR CLAUDE CODE
+==================================
+
+WHAT WE BUILT:
+- A complete business website for "Vickers & Carmichael" — a junk removal &
+  hauling company owned by Noah Vickers and John Carmichael in Cincinnati, OH.
+- Two HTML files: index.html (main site) and inquiry.html (detailed inquiry form)
+- Dark orange/black theme, Bebas Neue + Inter fonts, fully responsive
+- Interactive multi-step "Find Your Service" quiz
+- Services: junk removal, dump runs, moving/hauling, scrap metal, yard cleanup, commercial cleanouts
+
+WHERE THE FILES LIVE:
+- GitHub repo: https://github.com/gingaarcher/Junkerd.com
+- Both index.html and inquiry.html are already uploaded to the main branch
+- This repo is connected to Cloudflare Pages (project: junkerd-com)
+- Site will be live at junkerd-com.pages.dev (and eventually junkerd.com)
+
+WHAT STILL NEEDS TO HAPPEN:
+The files on GitHub still have PLACEHOLDER contact info that needs to be replaced:
+  - Phone: (555) 555-5555  →  (513) 808-8706
+  - Tel href: tel:+15555555555  →  tel:+15138088706
+  - Email: info@vickersandcarmichael.com  →  gingaarcher11@gmail.com
+  - mailto: mailto:info@vickersandcarmichael.com  →  mailto:gingaarcher11@gmail.com
+
+These placeholders appear in BOTH index.html AND inquiry.html.
+
+YOUR TASK:
+1. Clone https://github.com/gingaarcher/Junkerd.com
+2. Make the 4 replacements above in both files
+3. Commit and push to main branch
+4. Cloudflare will auto-deploy within ~60 seconds
+
+DESIGN NOTES:
+- Color scheme: --bg:#0d0d0d, --accent:#f97316 (orange), --text:#e8e8e8
+- Quiz section uses dark backgrounds (#222, #2a2a2a) with white text (#fff, #f0f0f0)
+- NO welding services — strictly junk removal and hauling
+- Business name in nav: VICKERS <span>& CARMICHAEL</span> (span = orange color)
